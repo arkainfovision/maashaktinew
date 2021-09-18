@@ -1,0 +1,625 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+article{
+    padding:10px;
+    margin:5%;
+    box-shadow:0px 2px 2px 0px silver;
+    color:black;
+}
+
+
+
+</style>
+<section class="page-header" style="margin-top: 50px; background-position:center; background-image: url('{% static '/images/bg_page_header_1.jpg' %}')">
+        <div class="container" style="padding: 50px 0px;">
+            <h1 class="page-header-title" style="color: white;">Properties Details</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">Properties</li>
+            </ul>
+        </div>
+    </section>
+<!-- ====== SINGLE PROPERTY CONTENT ====== -->
+    <section class="page-section" style="padding:0px;">
+        <div class="container">
+        {% for item in propertydetails %}
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Content -->
+                    <div id="content">
+                        <!-- Property Single Detail / Description -->
+                        <article class="post property-item" style="margin: 0%;">
+                            <div class="row mt-3">
+                                <div class="col-md-12" id="propertyrow">
+                                    <div class="post-property-header">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-8">
+
+
+
+                                                <h3 class="post-title"><a style="color:#333;">{{item.Title}}</a></h3>
+
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 text-right">
+                                                <span class="property-price">{% if item.TxnType == "RENT" %} ₹ {{item.RentAmount}} {{item.RentAmountUnit}}/month {% else %} ₹ {{item.Price}} {{item.PriceUnit}} <br> <b><!-- <small style="font-size:12px; color:green;">{{priceword}}</small></b> --> {% endif %} </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="property-address">
+                                            {{item.PropertyAddress}} {{item.PropertyAddress2}}
+                                        </div>
+                                        <div class="property-label">
+
+                                             <a href="javascript:history.back()" class="property-label__type" style="background-color: #000; font-size: 13px;">&laquo; Go Back</a>
+
+                                            <a  class="property-label__buy" style="margin-right: 6px; font-size: 13px;">{{item.TxnType}}</a>
+
+                                             {%  if item.Availability != "Available" and item.Availability != "" %}
+
+                                            <a class="property-label__status" style="font-size: 13px;">{{item.Availability}}</a>
+
+                                                {% endif %}
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Property Gallery Slider -->
+                                    <div class="property-image">
+                                        <div id="property-slider" class="property-slider" style="margin-left: 14px; margin-right: 14px;">
+                                            <img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" class="card-body" style="object-fit: cover;" alt="{{ item.Title }}">
+                                            {% for item in allimages %}
+                                                <img src="{{ MEDIA_URL }}/media/{{ item.Images }}" alt="" style="object-fit: cover;">
+                                            {% endfor %}
+                                        </div>
+
+                                        <!-- Property Gallery Slider Navigation -->
+                                        {% if allimages|length > 0 %}
+                                        <div id="property-slider-nav" class="property-slider-nav" style="background-color: #fff; margin-top:0.5em; margin:14px;">
+
+
+                                            <img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" alt="{{ item.Title }}" style="height:80px;">
+                                            {% for item in allimages %}
+                                                <img src="{{ MEDIA_URL }}/media/{{ item.Images }}" alt="" style="height:85px; object-fit: cover; margin: 0px;">
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+
+                                    </div>
+                                    <!-- Property facility Detail -->
+                                    <div class="property-footer">
+                                        <div class="item-wide"><span class="fi flaticon-wide"></span> {{item.CarpetArea}} sq.ft.</div>
+                                        <div class="item-room"><span class="fi flaticon-room"></span> {{item.Bedroom}}</div>
+                                        <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> {{item.Bathroom}}</div>
+                                        <div class="item-garage"><span class="fi flaticon-garage"></span> {{item.Parking}}</div>
+                                        <div class="item-garage"><span class="fa fa-rupee"></span></span> {{item.RateSQFT}} per sq.ft</div>
+                                    </div>
+
+                                    {% if item.TxnType == "RENT" %}
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Rent: Rs. {{item.RentAmount}} {{item.RentAmountUnit}}/month</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Deposit: Rs. {{item.Deposit}} {{item.DepositUnit}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Accomodate Status: {{item.CustomerStatus}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Accomodate Feast: {{item.CustomerFeast}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Pets: {{item.PetsAllowed}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Possession Date:
+                                        {% if item.RentPossessionDate != NULL %}
+                                             {{item.RentPossessionDate}}
+                                        {% else %}
+                                        N/A
+                                        {% endif %}
+                                    </p>
+                                    {% else %}
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Price: Rs. {{item.Price}} {{item.PriceUnit}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">{{item.PossessionStatus}}</p>
+                                    <p class="property-label__depo" style="background-color:#fff; color:#000;">Possession Date:
+                                        {% if item.PossessionDate != NULL %}
+                                             {{item.PossessionDate}}
+                                        {% else %}
+                                        N/A
+                                        {% endif %}
+                                    </p>
+                                    {% endif %}
+                                    <p class="property-label__depo" style=" background-color: #44cf4c; float: right;"> <a href="tel:9594888007" style="text-decoration: none; color:#fff;">Call Now</a></p>
+
+
+                                    <!-- The Space Section -->
+                                    <hr style="border-bottom: 1px solid #ccc;">
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px;">
+                                        <div class="col-md-2 col-sm-3">
+                                            <h3 class="heading-title">Description:</h3>
+                                        </div>
+                                        <div class="col-md-10 col-sm-9">
+                                            <p style="text-align: justify; line-height: 1.5;">{{item.ShortDescription}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="border-bottom: 1px solid #ccc;">
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px;">
+                                        <div class="col-md-2 col-sm-2">
+                                            <h3 class="heading-title">Spaces:</h3>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            <ul class="feature-list">
+                                                <li>  Bathrooms: <strong>{{item.Bathroom}}</strong></li>
+                                                <li>  Bedrooms: <strong>{{item.Bedroom}}</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Facilities Section -->
+                                    <hr style="border-bottom: 1px solid #ccc;">
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px;">
+                                        <div class="col-md-2 col-sm-2">
+                                            <h3 class="heading-title">Facilities:</h3>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            <ul class="feature-list">
+                                                {% if item.FacilityOne or item.FacilityTwo or item.FacilityThree or item.FacilityFour or item.FacilityFive or item.FacilitySix or item.FacilitySeven or item.FacilityEight or item.FacilityNine or item.FacilityTen %}
+                                                {% if item.FacilityOne %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Party hall </li>{% endif %}
+                                                {% if item.FacilityTwo %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Fully equipped gymnasium </li>{% endif %}
+                                                {% if item.FacilityThree %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Business Centre/ Library </li>{% endif %}
+                                                {% if item.FacilityFour %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Indoor games area </li>{% endif %}
+                                                {% if item.FacilityFive %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Spa treatment room </li>{% endif %}
+                                                {% if item.FacilitySix %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Swimming pool and kids pool </li>{% endif %}
+                                                {% if item.FacilitySeven %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Children’s play area </li>{% endif %}
+                                                {% if item.FacilityEight %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Swimming Pool </li>{% endif %}
+                                                {% if item.FacilityNine %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Terrace Garden </li>{% endif %}
+                                                {% if item.FacilityTen %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Shopping Centre </li>{% endif %}
+                                                {% for fac in facs %}
+                                                    {% for facility in fac.FacilityID.all %}
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">{{ facility }}</li>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                {% elif fac in facs or item in fac.FacilityID.all %}
+                                                {% for fac in facs %}
+                                                    {% for facility in fac.FacilityID.all %}
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">{{ facility }}</li>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                {% else %}
+                                                <h3 class="heading-title" style=" padding:5px; border-radius:6px; color:#fff; text-align: center;">No Basic Facility Found</h3>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Furnishing Section -->
+                                     <hr style="border-bottom: 1px solid #ccc;">
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px;">
+                                        <div class="col-md-2 col-sm-2">
+                                            <h3 class="heading-title">Furnishing:</h3>
+                                        </div>
+                                        <div class="col-md-10 col-sm-10">
+                                            <ul class="feature-list">
+                                                <h3 class="heading-title" style=" border-radius:6px; color:#000;">{{ item.Furnished }}</h3>
+                                                <br>
+                                                {% if item.Furnished == "Unfurnished" %}
+                                                {% comment %}<li> <span style="padding:5px; border-radius:6px;">Property UnFurnished</span></li>{% endcomment %}
+                                                {% else %}
+                                                        {% if item.FurnishOne %} <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Washing Machine </li>{% endif %}
+                                                        {% if item.FurnishTwo %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Water Purifier  </li>{% endif %}
+                                                        {% if item.FurnishThree %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Microwave </li>{% endif %}
+                                                        {% if item.FurnishFour %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Curtains </li>{% endif %}
+                                                        {% if item.FurnishFive %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Chimney  </li>{% endif %}
+                                                        {% if item.FurnishSix %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Exhaust Fan </li>{% endif %}
+                                                        {% if item.FurnishSeven %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Sofa  </li>{% endif %}
+                                                        {% if item.FurnishEight %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Dining Table </li>{% endif %}
+                                                        {% if item.FurnishNine %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Stove </li>{% endif %}
+                                                        {% if item.FurnishTen %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Modular Kitchen </li> {% endif %}
+                                                        {% if item.FurnishEleven %}<li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;"> Fridge </li>{% endif %}
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Wardrobe: {{ item.FurnishThingOne}}</li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Beds: {{ item.FurnishThingTwo}} </li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Fans: {{ item.FurnishThingThree}} </li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Light: {{ item.FurnishThingFour}} </li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">AC: {{ item.FurnishThingFive}} </li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">Geyser: {{ item.FurnishThingSix}} </li>
+                                                        <li style="margin-bottom: 5px; border-bottom: 1px solid #e6e6e6;">TV: {{ item.FurnishThingSeven}} </li>
+                                            {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr style="border-bottom: 1px solid #ccc;">
+
+
+                                    <!-- Description Section -->
+                                    {% comment %}
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px;">
+                                        <div class="col-md-3 col-sm-3">
+                                            <h3 class="heading-title">Description</h3>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <p style="padding: 1em;  text-align: justify; line-height: 1.5;">{{item.PropertyType}} | {{item.ShortDescription}}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Availability Section -->
+                                    <hr style="border-bottom: 1px solid #ccc;">
+                                    <div class="row" style="padding-left: 15px;  padding-right: 15px; margin-bottom: 1em;">
+                                        <div class="col-md-3 col-sm-3">
+                                            <h3 class="heading-title">Availability</h3>
+                                        </div>
+                                        <div class="col-md-9 col-sm-9">
+                                            <h4 class="property-status" style="color:#000;"><span style=" padding:5px; border-radius:6px;">{{item.Availability}}</span></h4>
+
+                                        </div>
+                                    </div>{% endcomment %}
+
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Property Location / Map -->
+                        {% comment %} <div class="property-location widget panel-box">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Property Location</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="map"></div>
+                            </div>
+                        </div> {% endcomment %}
+
+                        <!-- Floor Plans -->
+
+                        <!-- Comments -->
+                        <div id="comments" class="comments-area compact">
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div id="sidebar" style="box-shadow: 2px 2px 10px 0px rgb(184 184 184);">
+
+                        <!-- widget section Message -->
+					<div class="widget">
+						<div class="panel-box">
+							<!-- Panel Header / Title -->
+							<div class="panel-header">
+								<h3 class="panel-title">Leave Message</h3>
+							</div>
+							<!-- Panel Body -->
+							<div class="panel-body">
+								<form action="addcontact" method="post">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">
+                                                        <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <input type="email" name="email" class="form-control" placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group col-md-12" style="margin-bottom:24px;">
+                                                        <input type="number" class="form-control" name="contact" placeholder="Phone Number ">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="message" id="messages" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" class="btn-submit btn-primary btn" value="Submit" style="background-color: #f99d1b; border-color: #f99d1b;">
+                                                </div>
+                                            </form>
+							</div>
+						</div>
+					</div>
+
+				{% comment %}	<div class="widget">
+						<div class="panel-box">
+							<!-- Panel Header / Title -->
+							<div class="panel-header">
+								<h3 class="panel-title">Recent Property</h3>
+							</div>
+							<!-- Panel Body -->
+							<div class="panel-body">
+								<!-- Recent Property -->
+								<ul class="recent-property">
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="/media/{{item.PropertyImage}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="/individualproperty?property={{item.PropertyID}}">Best Private Villas</a>
+											<span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+											<ul class="property-footer">
+												<li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+												<li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+											</ul>
+										</div>
+									</li>
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="/media/{{item.PropertyImage}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="/individualproperty?property={{item.PropertyID}}">Best Private Villas</a>
+											<span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+											<ul class="property-footer">
+												<li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+												<li class="item-garage"><span class="fi flaticon-garage"></span>{{item.Parking}}</li>
+											</ul>
+										</div>
+									</li>
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="/media/{{item.PropertyImage}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="/individualproperty?property={{item.PropertyID}}">Best Private Villas</a>
+											<span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+											<ul class="property-footer">
+												<li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+												<li class="item-garage"><span class="fi flaticon-garage"></span>{{item.Parking}}</li>
+											</ul>
+										</div>
+									</li>
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="/media/{{item.PropertyImage}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="/individualproperty?property={{item.PropertyID}}">Best Private Villas</a>
+											<span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+											<ul class="property-footer">
+												<li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+												<li class="item-garage"><span class="fi flaticon-garage"></span>{{item.Parking}}</li>
+											</ul>
+										</div>
+									</li>
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="/media/{{item.PropertyImage}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="/individualproperty?property={{item.PropertyID}}">Best Private Villas</a>
+											<span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+											<ul class="property-footer">
+												<li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+												<li class="item-garage"><span class="fi flaticon-garage"></span>{{item.Parking}}</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>{% endcomment %}
+
+
+    <script>
+
+    $(document).on('click','.property-content',function(){
+    if($(this).data('ref') == undefined || $(this).data('ref') == "") return;
+        window.location.href = `individualproperty?property=${$(this).data('ref')}`
+    })
+
+    function getproperty(obj, pk){
+        var price = 0;
+        var unit = 0;
+        // console.log(obj);
+        if (obj.TxnType == "RENT"){
+            price = obj.RentAmount;
+            unit = obj.RentAmountUnit;
+        }
+        else if(obj.TxnType == "Buy"){
+            price = obj.Price;
+            unit = obj.PriceUnit;
+        }
+        return `
+            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a href="/individualproperty?property=`+pk+`" class="property-image">
+                            <img src="{{ MEDIA_URL }}/media/`+obj.PropertyImage+`" alt="Post list 1">
+                        </a>
+                        <a href="#" class="btn-compare" title="Compare Property">
+                        <p style="font-family: 'Acme';">Compare</p></a>
+                    </div>
+                    <div class="col-lg-7">
+
+                            <div data-ref=${pk} onclick="location.href='/individualproperty?property=`+pk+`" class="property-content" style="cursor: pointer;">
+                                <h3 class="property-title">`+obj.Title+`</h3>
+                                <p>
+                                    <span class="property-price">₹ `+price+` `+unit+`</span>
+                                    <span class="property-label">
+                                        {% comment %} <a href="#" class="property-label__type">Villa For Sale</a> {% endcomment %}
+                                        <a href="#" class="property-label__status">`+obj.Availability+`</a>
+                                    </span>
+                                </p>
+                                <div class="property-address">
+                                    `+obj.PropertyAddress+`
+                                </div>
+                                <p class="property-description">`+obj.ShortDescription+`</p>
+                                <div class="property-footer">
+                                    <div class="item-wide" style="width:40%;"><span class="fi flaticon-wide"></span>`+obj.CarpetArea+` sq.ft</div>
+                                    <div class="item-room" style="width:20%;"><span class="fi flaticon-room"></span> `+obj.Bedroom+`</div>
+                                    <div class="item-bathroom" style="width:20%;"><span class="fi flaticon-bathroom"></span> `+obj.Bathroom+`
+                                    </div>
+                                    <div class="item-garage" style="width:20%;"><span class="fi flaticon-garage"></span> `+obj.Parking+`
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    $(document).ready(function(e){
+
+        // var bathroom = "{{item.Bathroom}}";
+        // var bedroom = "{{item.Bedroom}}";
+
+        // $('#bath'+bathroom).attr('checked', true);
+        // $('#bed'+bedroom).attr('checked', true);
+
+    //       $(document).on('change', '#txntypedropdown', function(e){
+    //     var val = $(this).val();
+    //     if(val == ''){
+    //         $('#pricediv').addClass('hidden');
+    //         $('#rentdiv').addClass('hidden');
+    //     }
+    //     else if(val == 'Buy'){
+    //         $('#pricediv').removeClass('hidden');
+    //         $('#rentdiv').addClass('hidden');
+    //     }
+    //     else if(val == 'Rent'){
+    //         $('#pricediv').addClass('hidden');
+    //         $('#rentdiv').removeClass('hidden');
+    //     }
+    // });
+
+        // $(document).on('submit', '#searchform', function(e){
+        //     e.preventDefault();
+        //     var formdata = $('#searchform').serializeArray();
+        //     $('#content').html("<h2 class='text-center mt-3'>Searching...</h2>");
+        //     window.scrollTo(0, 0);
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/getprops',
+        //         data: formdata,
+        //         success: function(data){
+        //             if (typeof data == 'object'){
+        //             $('#content').html("");
+        //             data.forEach(function(obj){
+        //                 console.log(data);
+        //                 var html = getproperty(obj.fields, obj.pk);
+        //                 $('#content').append(html);
+        //             });
+        //             }
+        //             else{
+        //                 console.log(data);
+        //                 $('#content').html("Please check you input | Something went wrong");
+        //             }
+        //         }
+        //     });
+        // });
+
+        // var stateid = "{{stateid}}";
+        // $('#state'+stateid).prop('selected', true);
+        // getsublocations($('#state').val());
+        // var cityid = "{{cityid}}";
+        // $('#city'+cityid).prop('selected', true);
+    });
+
+    function getsublocations(ofwhere){
+        if(ofwhere != ''){
+            var request = $.ajax({
+            url: "/getcities",
+            method: "GET",
+            data: { data : ofwhere },
+            dataType: "json"
+            });
+
+            request.done(function( msg ) {
+                $('#sublocationdrop').html('');
+                var thehtml = "<option value='0'>Any City</option>";
+            for(var i = 0; i < msg.cities.length; i++){
+            var strdata = "<option id='city" + msg.cityID[i] + "' value='"+ msg.cityID[i]+"'>"+msg.cities[i] +"</option>";
+            thehtml = thehtml + strdata;
+            }
+                $('#sublocationdrop').html(thehtml);
+                 var cityid = "{{cityid}}";
+                $('#city'+cityid).attr('selected', true);
+                $('#sublocationdrop').select2();
+                getAreasLocation();
+                $('#locationstoreddrop').select2();
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+            console.log( "Request failed: " + textStatus );
+            });
+        }
+        else{
+            console.log('done');
+            $('#sublocationdrop').html('');
+            var thehtml = "<option selected value='0'>Any City</option>";
+            $('#sublocationdrop').html(thehtml);
+            $('#sublocationdrop').select2();
+            $('#areadropdown').html('');
+            var thehtml = "<option selected value='0'>Any Area</option>";
+            $('#areadropdown').html(thehtml);
+            $('#areadropdown').select2();
+            $('#locationstoreddrop').html('');
+            var thehtml = "<option selected value='0'>Any Location</option>";
+            $('#locationstoreddrop').html(thehtml);
+            $('#locationstoreddrop').select2();
+        }
+    }
+
+        function getAreaByLocation(locid){
+            var reqForGetAreaByLoc = $.ajax({
+                url: "/getareasbasedonlocation",
+                method: "GET",
+                data: {
+                locid:  locid,
+                },
+                dataType: "json"
+            });
+
+            reqForGetAreaByLoc.done(function( msg ) {
+                console.log(msg);
+                var thehtml = "<option value='0'>Any Area</option>";
+                for(var i = 0; i < msg.data.length; i++){
+
+                    var strdata = "<option value='"+ msg.data[i]+"'>"+msg.data[i] +"</option>";
+                    thehtml = thehtml + strdata;
+                }
+                document.getElementById("areadropdown").innerHTML = thehtml;
+
+            });
+
+            reqForGetAreaByLoc.fail(function( jqXHR, textStatus ) {
+            console.log("Something went wrong!!!");
+            });
+        }
+
+
+
+    function getAreasLocation(){
+        console.log("Fired");
+        var state = document.getElementsByName("stateinput")[0].value;
+        var city = document.getElementsByName("cityinput")[0].value;
+        if(state != 0 && city != 0){
+            var reqForGetLocationOfAreas = $.ajax({
+            url: "/getareas",
+            method: "GET",
+            data: {
+            locationstate:  state,
+            locationcity: city,
+            },
+            dataType: "json"
+            });
+
+            reqForGetLocationOfAreas.done(function( msg ) {
+            console.log(msg);
+
+
+            var thehtml = "<option value='0'>Any Area</option>";
+            for(var i = 0; i < msg.areas.length; i++){
+
+            var strdata = "<option value='"+ msg.areas[i][0]+"'>"+msg.areas[i][1] +"</option>";
+            thehtml = thehtml + strdata;
+            }
+            document.getElementById("locationstoreddrop").innerHTML = thehtml;
+                getAreaByLocation(document.getElementById("locationstoreddrop").value);
+            });
+
+            reqForGetLocationOfAreas.fail(function( jqXHR, textStatus ) {
+            console.log("Something went wrong!!!");
+            });
+        }
+        else{
+            var thehtml = "<option selected value='0'>Any Area</option>";
+            document.getElementById("locationstoreddrop").innerHTML = thehtml;
+        }
+
+    }
+    </script>
+                                </div>
+                            </div>
+                            <!-- Tab Content For Rent-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- ====== ABOUT US SECTION ====== -->
+{% endblock content %}

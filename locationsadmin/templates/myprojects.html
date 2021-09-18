@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 16px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+.post .post-entries {
+    font-size: 16px;
+    font-family: 'Work Sans';
+}
+
+
+
+</style>
+{% block content %}
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">Projects</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">projects</li>
+            </ul>
+        </div>
+    </section>
+
+        <section class="page-section" style="padding-top: 10px;">
+            <div class="container">
+                <div class="section-header" style="margin-top: 2em;">
+                    <h2 class="section-title">Our Projects</h2>
+                </div>
+            </div>
+        </section>
+
+
+
+
+     <section class="page-section" style="padding-top: 10px;">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="content" >
+                        <!-- Post List -->
+                        <article class="post">
+                            <div class="row" id="Property">
+
+                            <div class="col-md-4">
+                                <div class="explore-item" style="margin-bottom: 0px;">
+                                    <a  style="background-image: url({% static 'images/MA.jpg' %});"></a>
+                                    <h3 class="item-title"><a href="https://www.maashaktiproperty.com/prop">MICL Aradhya High Park <i class="fi flaticon-more"></i></a></h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="services-description">
+                                <h4 style="font-weight: 300;
+    line-height: 2;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: 'Acme', sans-serif;color: #f99d1b; padding-left: 15px;">MICL Aradhya High Park</h4>
+                                <p class="post-entries" style="padding:1em; font-size: 16px;
+    font-family: 'Work Sans';">WEH brings you an urban marvel that makes your living experience a reverence. Presenting Aaradhya HighPark, an elegant and stylish development by award-winning Indian architecture, Hafeez Contractor. These meticulously planned homes are designed to give you the best of space management and comfort all at once.
+
+    <br> <br>
+    When we talk about a holistic life experience, we mean it. Choose from a range of remarkable lifestyle avenues for all age groups. Enjoy excellent connectivity to all major infrastructures and daily necessities. There’s more to the perfect life at Aaradhya Highpark. Scroll down to know more.
+                                </p>
+                                </div>
+                            </div>
+
+                            </div>
+                        </article>
+                        <!-- Post List -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ====== TESTIMONY SECTION ====== -->
+
+<!-- ====== TESTIMONY SECTION ====== -->
+    <section class="customer-logos slider" style="background-image: url('{% static "images/bg_video_1.jpg" %}'); padding-top: 2em;
+    padding-bottom: 2em; border-top: 0px;">
+        <div class="slide"><img src="{% static 'images/client/Dymanix.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/ecocity.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/jp.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/Kalpatru.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/MICLlogo.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/raj.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/ramdev.jpg' %}"></div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

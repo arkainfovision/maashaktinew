@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ====== BLOG ARCHIVE PAGE HEADER ====== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header-title">Blogs</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">Blogs</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== POST LIST ====== -->
+    <section class="page-section" style="padding-top: 10px;">
+        <div class="container">
+            <div class="section-header" style="margin-top: 2em;">
+                <h2 class="section-title">Property Blogs</h2>
+            </div>
+            <div style="display:flex; flex-direction:rows; flex-wrap:wrap; justify-content:center; vertical-align:middle;">
+
+                <!-- Content -->
+
+                {% for blog in blogs %}
+
+                        <div class="">
+                                <!-- Post List -->
+
+                                    <div class="card">
+                                        <div class="card-body p-0">
+                                            <a href="/individualblog?blogid={{blog.url}}">
+                                                <img src="{{ MEDIA_URL }}/media/{{ blog.blogimage }}" style="width: 100%;">
+                                            </a>
+                                            <h3 class="item-title"><a href="#">{{blog.title}} <i class="fi flaticon-more"></i></h3>
+
+                                        </div>
+                                        <div class="card-footer">
+                                            <p>{{blog.summary}}
+                                            </p>
+                                        </div>
+                                    </div>
+                        </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ====== ABOUT US SECTION ====== -->
+    <section id="about-us" class="page-section" style="background-color:#fff;">
+        <div class="container">
+
+            <!-- Brand Content -->
+
+            <div class="about-content">
+                <p style="color:#000;">“Owning a home is a keystone of wealth… <strong>both financial affluence and emotional
+						security.”</strong></p>
+                <a href="contact.html" class="btn btn-primary" style="background-color: #39aa53; border-color: #39aa53;">Contact
+					Now</a>
+                <img src="{% static 'images/home/stamp.png' %}" alt="" style=" margin-left: 8em;">
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+{% endblock content %}

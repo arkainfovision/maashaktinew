@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">Event Gallery</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">Gallery</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- BEST DEALS -->
+    <section id="best-deals" class="page-section" style="background-color: #fff;">
+        <div class="container">
+
+
+            <div class="section-header">
+                <h2 class="section-title"> Our Events </h2>
+            </div>
+    <!-- <div class="row" style="z-index: 99999999;">--
+       <div class="col-md-12">
+
+                <div class="featured-property-slider">
+                    {% for item in eventphotos %}
+                    <div class="property-item property-archive" style="padding:0em;">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <a class="property-image" style="height:420px;">
+                                    <img src="{{ item.Photo.url }}" alt="" style="object-fit: cover;">
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="property-image" style="height:420px;">
+                                    <img src="{{ item.Photo.url }}" alt="" style="object-fit: cover;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <!--<div class="property-item property-archive" style="padding:0em;">-->
+                    <!--    <div class="row">-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/3.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/4.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <!--<div class="property-item property-archive" style="padding:0em;">-->
+                    <!--    <div class="row">-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/5.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/6.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <!--<div class="property-item property-archive" style="padding:0em;">-->
+                    <!--    <div class="row">-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/7.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/8.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+
+                    <!--    </div>-->
+                    <!--</div>-->
+
+                    <!--<div class="property-item property-archive" style="padding:0em;">-->
+                    <!--    <div class="row">-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/9.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+                    <!--        <div class="col-md-6">-->
+                    <!--            <a class="property-image">-->
+                    <!--                <img src="{% static 'images/gallary/10.jpg' %}" alt="">-->
+                    <!--            </a>-->
+                    <!--        </div>-->
+
+
+                    <!--    </div>-->
+                    <!--</div>
+
+            </div>
+       </div>
+
+   </div>
+
+        </div>
+    </section>-->
+
+    <section id="main-slider" class="page-section featured-property-slider">
+
+	<!-- Slider Item -->
+	{% for item in eventphotos %}
+	<div class="container">
+	    <div class="slider-item">
+		    <img src="{{ item.Photo.url }}" alt="#">
+		        <div class="container">
+			        <div class="property-item">
+				        <div class="property-content">
+					        <h2 class="property-title"><a href="#Property">Property Consultancy</a></h2>
+					        <p class="property-description" >“Owning a home is a keystone of wealth… both financial affluence and emotional security.”</p>
+
+				        </div>
+			        </div>
+		        </div>
+	    </div>
+	</div>
+	{% endfor %}
+	<!-- Slider Item -->
+
+
+    </section>
+
+    <!-- ====== ADVANTAGES ====== -->
+    <section id="advantages" class="page-section">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="section-header">
+                <h2 class="section-title">Event VIDEOS</h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="property-item">
+                <div class="row">
+
+                    {% for item in yvids %}
+                    <div class="col-md-6 mx-auto">
+                            <!--<iframe width="1053" height="300" src="{{item.YoutubeUrl}}" title="YouTube video player" frameborder="0" allowfullscreen></iframe>-->
+                            {{item.YoutubeUrl|safe}}
+                    </div>
+                    {% endfor %}
+
+                    {% for item in videos%}
+                        <div class="col-md-6 mx-auto">
+                            <video width="100%" height="350px" controls style="padding: 10px; margin-top: -7px;">
+                                <source src="/media/{{item.video}}">
+
+                            </video>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ====== PARTNER SECTION ====== -->
+
+
+    {% endblock content %}

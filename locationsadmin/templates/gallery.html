@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">Property Gallery</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">Gallery</li>
+            </ul>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- ====== SELECT WHERE TO START YOUR JOURNEY ====== -->
+    <section id="explore" class="page-section" style="background-color: #FFF">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="section-header header-center">
+                <h2 class="section-title">Project Pictures</h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="row">
+                {% for item in images %}
+                    <div class="col-md-6" style="padding-right: 6px; padding-left: 6px;">
+                        <div class="explore-item" style="margin-bottom: 12px;">
+                            <a style="background-image: url('{{ MEDIA_URL }}/media/{{ item.image }}');"></a>
+                            <h3 class="item-title"><a>{{item.title}} <i class="fi flaticon-more"></i></a></h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ====== ADVANTAGES ====== -->
+    <section id="advantages" class="page-section">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="section-header">
+                <h2 class="section-title">PROPERTY VIDEOS</h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="property-item">
+                <div class="row">
+                    {% for item in yvids %}
+                    <div class="col-md-6 mx-auto">
+                            {{item.YoutubeUrl|safe}}
+                    </div>
+                    {% endfor %}
+                    {% for item in videos%}
+                        <div class="col-md-6 mx-auto">
+                            <video width="100%" height="350px" controls style="padding: 10px; margin-top: -7px;">
+                                <source src="/media/{{item.video}}">
+
+                            </video>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="explore" class="page-section" style="background-color: #FFF">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="section-header">
+                <h2 class="section-title">PROPERTY Pictures</h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="row">
+                {% for item in prop %}
+                {% if item.InGallery == True %}
+                    <div class="col-md-3" style="padding-right: 6px; padding-left: 6px;">
+                        <div class="explore-item" style="margin-bottom: 12px;">
+                            <a href="/individualproperty?property={{item.PropertyID}}" style="background-image: url('/media/{{item.PropertyImage}}');"></a>
+                            <h4 class="item-title"><a> {{item.title}} </i></a></h4>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ====== PARTNER SECTION ====== -->
+
+
+    {% endblock content %}

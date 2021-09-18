@@ -1,0 +1,1275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Maa Shakti</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type='image/x-icon' href="{% static 'images/favicon.ico' %}">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/46b69d07b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!------------>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!------------>
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <a href="https://icons8.com/icon/DcygmpZqBEd9/google-maps"></a>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Teko&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=PT+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme --
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+		<!-- CSS -->
+
+    <!-- Start WOWSlider.com HEAD section -->
+        <link rel="stylesheet" type="text/css" href="{% static 'engine1/style.css' %}" />
+        <script type="text/javascript" src="{% static 'engine1/jquery.js' %}"></script>
+        <!-- End WOWSlider.com HEAD section -->
+ <link rel="stylesheet" href="{% static 'form.css' %}">
+    <script src="{% static 'form.js' %}"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WSRTHXZBP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9WSRTHXZBP');
+</script>
+
+
+    <style>
+    html {
+        scroll-behavior: smooth;
+     }
+        .property-item:hover {
+                background-color: rgb(243, 243, 243);
+            }
+
+            .property-item {
+                box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);
+            }
+
+            .loader {
+                background-color: #fff;
+            }
+
+            .nav>li>a {
+                position: relative;
+                display: block;
+                padding: 10px 8px;
+            }
+
+            #header #navbar .navbar-nav>li>a.hov{
+                color: #fdab26;
+                padding: 10x;
+            }
+            #header #navbar .navbar-nav>li>a.hov:hover {
+                color: #fff;
+                background-color: #fdab26;
+            }
+
+            .navbar {
+                position: relative;
+                min-height: 50px;
+                border: none;
+                background-color: #fff;
+                box-shadow: 0 8px 7px -6px #3127238c;
+            }
+
+            .topbar-item a:hover {
+                background: #FDAB26;
+                border-radius: 20px;
+            }
+
+            .social a {
+                font-size: 20px;
+            }
+
+            .social a i {
+                padding: 5px 8px;
+            }
+
+            .tpb-row {
+                padding-bottom: 50px;
+                margin: 0;
+                background-size: cover;
+                background-position: center;
+                background-color: #fff;
+            }
+
+            @media only screen and (max-width: 800px) {
+                /* For mobile phones: */
+                .property-simple-search {
+                    margin-top: 24em;
+                }
+                .property-simple-search .img-responsive {
+                    width: 22%;
+                }
+                .message-box {
+                    display: inline-block;
+                    position: fixed;
+                    top: 17%;
+                    right: 30px;
+                }
+                .property-simple-search span h2 {
+                    font-size: 18px;
+                }
+                .tpb {
+                    margin-top: -32em;
+                }
+                .navbar-header a img {
+                    margin-top: -11px;
+                }
+            }
+
+            @media only screen and (max-width: 500px) {
+                /* For mobile phones: */
+                .property-simple-search .img-responsive {
+                    width: 35%;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                /* For mobile phones: */
+                .property-simple-search .rera {
+                    width: 85%;
+                }
+            }
+    </style>
+
+<link rel="stylesheet" href="{% static 'css/sol.css' %}">
+    <script type="text/javascript" src="{% static 'js/sol.js' %}"></script>
+
+</head>
+<!--  Created By Arka Infovision -->
+<body class="header-1 page-header-1">
+<!--  Created By Arka Infovision -->
+
+
+
+    <div class="pre-loader loader" style="background-color:#fff;">
+        <img src="{% static 'images/loding1.gif' %}" alt="" style="border-radius: 1em solid #fff; margin-bottom: 5em;">
+
+    </div>
+
+    <div id="customizer">
+
+        <span class="icon-panel"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+
+
+    </div>
+
+
+
+	 <!---====== BEGIN HEADER ======-->
+        <header id="header" style="height: 117px;">
+
+            <!-- Topbar Header Varian 1 -->
+            <div class="topbar-1">
+                <!-- Topbar Header Varian 1 for Desktop View-->
+                <nav class="topbar topbar-varian-1 desktop-topbar" style="background-color: #635e5a; border-top: 5px solid #FDAB26;">
+                    <div class="container">
+
+
+
+
+                        <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+
+                            <a href="https://g.page/maa-shakti-property-consultant?share" target="blank" style="text-decoration: none;" class="item-text">
+                                <span><img src="{% static 'images/icon/google-map.png' %}" style=" background-color: #fff;
+							padding: 4px; border-radius: 150px; box-shadow: 0 8px 17px -5px #000000;"></span> SHOP NO. 12, ANNAPURNA HEIGHTS, INDRALOK, PHASE 6, BHAYANDAR (E) .</a>
+
+                        </div>
+                        <div class="topbar-item" style="border-right: 0px solid; float: right;padding-left: 5em;">
+
+                            <a href="tel:9594888007" style=" text-decoration: none;" class="item-text">
+                                <span><img src="{% static 'images/icon/phone_icon.png' %}" style=" background-color: #fff;
+						padding: 1px; padding-top: 0px; border-radius: 30px; box-shadow: 0 8px 17px -5px #000000; padding-bottom: 2px;"></span>
+                                <b style="font-family: 'Helvetica'; letter-spacing: 1px;">9594888007</b> </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+
+            <!-- Main Menu Header -->
+            <nav class="navbar navbar-default" style="z-index: 9999;">
+                <div class="container">
+                    <!-- Navbar Brand -->
+                    <div class="navbar-header" style="height: 70px;">
+                        <a  href="https://www.maashaktiproperty.com/" style="padding: 8px;"><img src="{% static 'images/newlogo2.png' %}"></a>
+                        <!--------
+					<span
+						style="background-color: #fff; padding: 1px 15px 1px 15px; border-radius: 10px; font-size: 14px; display: inline-block;">
+						<img src="images/icon/RERA.png" style="padding-bottom: 10px;">
+						<span style="color: #f45227; font-family: 'Acme';font-size: 15px;">MAHA RERA No:</span>
+						<span style="color: #000000; font-family: 'Acme';font-size: 17px;"> A51700006717</span>
+						</span>
+						------>
+
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                    </div>
+
+
+
+                    <!-- Navbar Menu -->
+                    <nav id="navbar" class="navbar navbar-right navbar-collapse collapse" style="z-index: 99; margin-bottom: 0px; margin-top: 1px;">
+                        <ul class="nav navbar-nav" style="margin-top: 15px;">
+
+                            <!--Dropdown Menu-->
+                            <li class="active">
+
+                                <a href="https://www.maashaktiproperty.com/" style="font-size: 23px;"> <i class="fas fa-home"></i></a>
+                            </li>
+
+
+						<!-- Dropdown Menu -->
+                            <li>
+                                <a href="/aboutus">About Us</a>
+                            </li>
+                            <li class="dropdown">
+                                <a>Services</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/property_consultant"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Property Consultancy</a>
+                                    </li>
+                                    <li>
+                                        <a href="/finance"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Finance Consultancy</a>
+                                    </li>
+                                    <li>
+                                        <a href="/interior"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Interior Design</a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown Menu -->
+                            </li>
+                            <li class="dropdown">
+                                <a>Properties</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="properties?typeofprop=1"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Residential</a>
+                                    </li>
+                                    <li>
+                                        <a href="properties?typeofprop=2"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Commercial</a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown Menu -->
+                            </li>
+                            <li>
+                                <a href="/myprojects">Projects</a>
+                            </li>
+                            <li>
+                                <a href="/blogs">Blogs</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a>Gallery</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/gallery"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Property Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.maashaktiproperty.com/eventgallery"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Event Gallery</a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown Menu -->
+                            </li>
+
+
+                            <!-- Dropdown Menu -->
+                            <li>
+                                <a href="/contact">Contact Us</a>
+                            </li>
+
+                            <li  style="border: 1px solid #fdab26;  border-radius: 4px;">
+                                <a class="hov" href="/contact">Post Property</a>
+                            </li>
+
+                    </nav>
+                </div>
+            </nav>
+        </header>
+        <!-- ====== END HEADER ====== -->
+
+		<!-- ====== PAGE BUILDER TEMPLATE ====== -->
+        <section id="page-builder" class="page-section" style="margin-top: -54px;">
+            <!-- HERO IMAGE WITH SEARCH FORM -->
+
+            <div class="row tpb-row" style="background-color: #fff;">
+
+                <div class="container">
+                    <div class="message-box rotated" style="z-index: 99999;">
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000;"><a href="/feedback" target="blank" style="color: rgb(62, 255, 62); text-decoration: none;">Feedback</a> </button>
+
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000; color: rgb(96, 231, 255);" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</button>
+
+                    </div>
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog" style="z-index:99999;">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" style="padding: 1px 3px;border-radius: 4px; font-size: 16px;">&times;</button>
+                                    <h4 class="modal-title" style="text-align: center; font-family: 'Acme';
+                                    font-size: 1.5em;">
+                                        ENQUIRE NOW
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" method="post" action="addcontact">
+										{% csrf_token %}
+                                        <p style="text-align: center;"> Send your ENQUIRE we will get back to you as early as possible. </p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="number" name="contact" class="form-control" id="number" placeholder="contact no.*" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Your Message Here" maxlength="6000" rows="3" style="box-shadow: 2px 2px 10px 0px #e3e3e3;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-success btn-block">Send Now &rarr;</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!----->
+                <!-- Start WOWSlider.com BODY section -->
+                <div id="wowslider-container1">
+                    <div class="ws_images">
+                        <ul>
+                            <li><img src="{% static 'data1/images/in/b1.jpg' %}" alt="banner34" title="banner34" id="wows1_0" /></li>
+                            <li>
+                                <img src="{% static 'data1/images/in/b2.jpg' %}" alt="bootstrap image slider" title="banner45" id="wows1_1" /></a>
+                            </li>
+                            <li><img src="{% static 'data1/images/in/b3.jpg' %}" alt="bg6 (1)" title="bg6 (1)" id="wows1_2" /></li>
+                        </ul>
+                    </div>
+                    <div class="ws_script" style="position:absolute;left:-99%"></div>
+                    <div class="ws_shadow"></div>
+                </div>
+                <script type="text/javascript" src="{% static 'engine1/wowslider.js' %}"></script>
+                <script type="text/javascript" src="{% static 'engine1/script.js' %}"></script>
+                <!-- End WOWSlider.com BODY section -->
+
+
+
+                <div class="tpb tpb-property_simple_search col-md-12" style="margin-top: -28em; z-index: 99;" id="scearchinfo">
+                    <div class="property-simple-search">
+                        <img src="{% static 'images/home/logo3.png' %}" alt="" class="img-responsive" style="position: absolute;
+				   top: -20%; left: 50%; transform: translate(-50%, -50%); z-index: 99;">
+
+
+                        <h2 style="text-align: center; position: relative; margin-top: 95px; font-family: 'Acme', sans-serif; text-shadow: 0 3px 18px -4px #000000; ">
+                            <!-------->
+                            <span style="padding: 1px 15px 1px 15px; border-radius: 10px;">
+							<img src="{% static 'images/maharera2.png' %}" class="rera" >
+							{% comment %}<h2 style="color: #fff; display: contents; text-shadow: 3px 3px 5px #000000;">MAHA RERA No: A51700006717</h2> </span>{% endcomment %}
+							{% comment %} <a href=""><button class="btn btn-primary">Compare</button></a> {% endcomment %}
+
+                        </h2>
+
+                        <div class="content-wrapper">
+                            <div class="property-search-form" style=" box-shadow: 2px 2px 10px 0px rgb(0 0 0);">
+
+                                <ul class="nav nav-tabs" role="tablist" style=" border-bottom: 0px solid #ddd;">
+          <!--                          <li class="active" onclick="document.getElementById('txninput').value='BUY';"><a href="#for-sale" onclick="document.getElementById('txninput').value='BUY';" role="tab" data-toggle="tab" style="padding: 7px 22px; color: #f99d1b; font-weight: 900;"><i class="fi flaticon-sale"></i>-->
+										<!--BUY</a></li>-->
+                                    <li><a role="tab"  data-toggle="tab" class="sell" style="padding: 7px 3px; color: #f99d1b; font-weight: 900; background-color: #0000; border-color: #fff0; margin-bottom: 5px; margin-top: -10px;">
+										Search your Property</a></li>
+          <!--                          <li onclick="document.getElementById('txninput').value='RENT';"><a href="#for-rent" role="tab" data-toggle="tab" onclick="document.getElementById('txninput').value='RENT';" style="padding: 7px 22px; color: #f99d1b; font-weight: 900;"><i class="fi flaticon-rent"></i>-->
+										<!--RENT</a></li>-->
+                                </ul>
+								<form action="/search" class="form-inline">
+
+								    <div class="form-group">
+                                        <select name="txninput" id="txninput"  class="form-control"  required style="height: 28px; border: 1px solid #ccc; padding: 5px 4px;">
+                                            <option value="BUY">BUY</option>
+                                            <option value="RENT">RENT</option>
+                                        </select>
+                                    </div>
+
+									<div class="form-group">
+										<select name="stateinput"  class="form-control" style="height: 39px; width: 100%;" onload="getsublocations(this.value)" onchange="getsublocations(this.value)" id="stateoption">
+										{% for item in state %}
+											<option value="{{item.STID}}">{{item.StateName}}</option>
+										{% empty %}
+										<p>Nothing Found</p>
+										{% endfor %}
+										</select>
+									</div>
+
+									<div class="form-group">
+                                        <select  id="sublocationdrop"  onchange="getAreasLocation(this.value)" class="form-control"  style="height: 39px; width: 100%;" name="cityinput" required>
+                                        </select>
+                                    </div>
+									<div class="form-group">
+										<select name="locationinput"  class="form-control" style="height: 39px; width: 100%;" id="locationstoreddrop">
+										</select>
+									</div>
+									<div class="form-group submit-column">
+                                        <button id="searchbtn" type="submit" class="btn btn-primary btn-submit" style="background-color: #FDAB26; border-color: #FDAB26; padding: 1px;"><i
+											class="fa fa-search" style="font-size:20px;"></i>Search</button>
+                                    </div>
+							</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    <!-- BEST DEALS -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<div id="sidebar-compare">
+    <div class="sidebar-wrapper">
+
+            <header class="heading-bar">
+            <a href="#" class="compare-toggle" style="background-color: #fff;"><i class="fa fa-times-circle" style="font-size: 26px;"></i></a>
+            <h3 class="heading-title" style="margin-top: 1em;">Compare Porperty</h3>
+        </header>
+        <ul class="compare-body text-center" id="compareul">
+            <li><i class="fa fa-spinner"></i></li>
+        </ul>
+        <footer class="footer-bar text-center">
+            <a href="#" id="resetbtn" class="btn btn-primary btn-reset">Reset</a>
+            <a href="" id="comparebtn" class="btn btn-primary disabled">Compare</a>
+        </footer>
+        <p class="text-center text-danger" id="comperrormsg"></p>
+    </div>
+</div>
+
+	<!-- ====== BEST OFFER SECTION ====== -->
+    <section id="best-offer" class="page-section" style="margin-top: -5em;">
+        <div class="container">
+
+            <!-- Section Header / Title with Column Slider Control / Add 'header-column' to use this style -->
+            <div class="section-header header-column" style="box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);">
+                <h2 class="section-title">Best Offer</h2>
+                <!-- Slider Control -->
+
+
+
+               <div class="slide-control">
+                    <button id="slide-left" class="slide-left"><i class="fa fa-angle-left"></i></button>
+                    <button id="slide-right" class="slide-right"><i class="fa fa-angle-right"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="center mt-5" style="text-align: center;">
+            <a href="https://www.maashaktiproperty.com/allproperties"><button type="button" class="btn btn-primary" style="background-color:#fdab26; border-color:#fdab26;">View All Property</button></a>
+
+            </div>
+            </div>
+
+            <div style="margin-top: 2em;">
+
+            <div id="product-slider" class="row product-slider">
+			{% for item in property %}
+				<div class="col-md-4 col-sm-6">
+                    <!-- Property Item -->
+                    <div class="property-item" style="box-shadow: 2px 2px 10px 0px silver; margin-bottom: 2em;">
+                        <div class="property-heading">
+                            {% if item.TxnType == "BUY" %}
+                            <span class="item-price">₹​ {{item.Price}} {{item.PriceUnit}}</span>
+                            {% else %}
+                            <span class="item-price">₹​ {{item.RentAmount}} {{item.RentAmountUnit}}/month</span>
+                            {% endif %}
+                            <a href="/individualproperty?property={{item.PropertyID}}" style="background-color: #fdab26; border-color: #fdab26;" class="item-detail btn">
+                            Detail <i class="fi flaticon-detail"></i></a>
+                        </div>
+                        <div class="img-box">
+                            <div class="explore-item">
+                            {% if item.PossessionStatus == "Under Construction" %}
+                            <span class="Underconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #ed3237; transform: rotate(-45deg); left:-45px;"> Under Construction </span>
+                            {% elif item.PossessionStatus == "Ready to Move"  %}
+                            <span class="Newconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #92ca40; transform: rotate(-45deg); left:-45px;"> New Construction </span>
+                            {% else %}
+
+                            {% endif %}
+                            <!--<span class="Resale" style="position: absolute; float: left; color: #fff; top: 30px; text-align: center; width: 150px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #4773d6;"> Resale </span>-->
+
+                            <div class="property-label">
+
+                                {% if item.TxnType == "BUY" %}
+                            <a  class="property-label__type">House For Sale</a>
+                            {% else %}
+                            <a  class="property-label__type" style="background-color:purple;">House For Rent</a>
+                            {% endif %}
+
+
+                                {% comment %} <a href="#" class="property-label__status">{{item.Availability}}</a> {% endcomment %}
+                            </div>
+
+
+
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="img-box__image" style="height: 240px;">
+
+                                <img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" alt="" class="img-responsive" style="object-fit: cover;"></a>
+                        </div>
+
+
+                                <a href="#" class="btn-compare" data="{{item.PropertyID}}" title="Compare Property" style="position: absolute; bottom: 8px; right: 23px; font-size: 21px; width: 68px;
+                                height: 21px; line-height: 20px; color: #fff; text-align: center; z-index: 9; background-color: #fff; border-radius: 5px; box-shadow: 2px 2px 10px 0px rgb(64 64 64);">
+                                            <p style="font-family: 'Acme'; color:#000;">Compare</p>
+                                </a>
+
+                        </div>
+                        <div class="property-content">
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="property-title">{{item.Bedroom}} BHK, {{item.Title}}</a>
+                            <div class="property-address">
+                                {{item.PropertyLocation}}
+
+                            </div>
+                            <div class="property-footer">
+                                <div class="item-wide" style="width: 40%;"><span class="fi flaticon-wide"></span> {{item.CarpetArea}} sq.ft.</div>
+                                                <div class="item-room" style="width: 20%;"><span class="fi flaticon-room"></span> {{item.Bedroom}}</div>
+                                                <div class="item-bathroom" style="width: 20%;"><span class="fi flaticon-bathroom"></span> {{item.Bathroom}}
+                                                </div>
+                                                <div class="item-garage" style="width: 20%;"><span class="fi flaticon-garage"></span> {{item.Parking}}
+                                                </div>
+                            </div>
+
+                        </div>
+						{% comment %} <a href=""><button class="btn btn-primary">Compare</button></a> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+
+               </div>
+
+            </div>
+
+
+
+            <div id="allpropdiv" style="display:none;">
+
+                {% for item in property %}
+				<div class="col-md-4 col-sm-6">
+                    <!-- Property Item -->
+                    <div class="property-item" style="box-shadow: 2px 2px 10px 0px silver; margin-bottom: 2em;">
+                        <div class="property-heading">
+                            {% if item.TxnType == "BUY" %}
+                            <span class="item-price">₹​ {{item.Price}} {{item.PriceUnit}}</span>
+                            {% else %}
+                            <span class="item-price">₹​ {{item.RentAmount}} {{item.RentAmountUnit}}/month</span>
+                            {% endif %}
+                            <a href="/individualproperty?property={{item.PropertyID}}" style="background-color: #fdab26; border-color: #fdab26;" class="item-detail btn">
+                            Detail <i class="fi flaticon-detail"></i></a>
+                        </div>
+                        <div class="img-box">
+                            {% if item.PossessionStatus == "Under Construction" %}
+                            <span class="Underconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #ed3237; transform: rotate(-45deg); left:-45px;"> Under Construction </span>
+                            {% elif item.PossessionStatus == "Ready to Move"  %}
+                            <span class="Newconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #92ca40; transform: rotate(-45deg); left:-45px;"> New Construction </span>
+                            {% else %}
+
+                            {% endif %}
+                            <div class="property-label">
+
+                                {% if item.TxnType == "BUY" %}
+                            <a  class="property-label__type">House For Sale</a>
+                            {% else %}
+                            <a  class="property-label__type" style="background-color:purple;">House For Rent</a>
+                            {% endif %}
+
+
+                                {% comment %} <a href="#" class="property-label__status">{{item.Availability}}</a> {% endcomment %}
+                            </div>
+
+
+
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="img-box__image" style="height: 240px;">
+                                <img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" alt="" class="img-responsive" style="object-fit: cover;"></a>
+
+
+
+                                <a href="#" class="btn-compare" data="{{item.PropertyID}}" title="Compare Property" style="position: absolute; bottom: 8px; right: 23px; font-size: 21px; width: 68px;
+                                height: 21px; line-height: 20px; color: #fff; text-align: center; z-index: 9; background-color: #fff; border-radius: 5px; box-shadow: 2px 2px 10px 0px rgb(64 64 64);">
+                                            <p style="font-family: 'Acme'; color:#000;">Compare</p>
+                                </a>
+
+                        </div>
+                        <div class="property-content">
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="property-title">{{item.Bedroom}} BHK, {{item.Title}}</a>
+                            <div class="property-address">
+                                 {{item.PropertyLocation}}
+
+                            </div>
+                            <div class="property-footer">
+                                <div class="item-wide" style="width: 40%;"><span class="fi flaticon-wide"></span> {{item.CarpetArea}} sq.ft.</div>
+                                                <div class="item-room" style="width: 20%;"><span class="fi flaticon-room"></span> {{item.Bedroom}}</div>
+                                                <div class="item-bathroom" style="width: 20%;"><span class="fi flaticon-bathroom"></span> {{item.Bathroom}}
+                                                </div>
+                                                <div class="item-garage" style="width: 20%;"><span class="fi flaticon-garage"></span> {{item.Parking}}
+                                                </div>
+                            </div>
+
+                        </div>
+						{% comment %} <a href=""><button class="btn btn-primary">Compare</button></a> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+
+    <!-- ====== FEATURED PROPERTY SECTION ====== -->
+<section id="featured-property" class="page-section">
+	<div class="container">
+		<!-- Section Title -->
+		<div class="section-header">
+			<h2 class="section-title">Our Projects</h2>
+		</div>
+		<!-- Section Content -->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Property Item Tall -->
+				<div class="property-item">
+					<div class="property-header" style="margin-bottom: 3em;">
+					    <div class="item-price"  style="color: #f99d1b;">MICL Aradhya High Park</div>
+						<a class="item-title">THE CROWN JEWEL OF WESTERN EXPRESS HIGHWAY</a>
+
+					</div>
+					<figure class="item-img" style="background-image: url({% static 'images/MA.jpg' %});">
+						<a href="https://www.maashaktiproperty.com/prop"></a>
+					</figure>
+				</div>
+			</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- ====== TESTIMONY SECTION ====== -->
+<section id="testimony" class="page-section">
+	<div class="container" style="background-color: #ddd;
+    padding: 30px;">
+
+		<!-- Section Header / Title with Column Slider Control / Add 'header-column' to use this style -->
+		<div class="section-header header-column">
+			<h2 class="section-title">Feedbacks</h2>
+			<!-- Slider Control -->
+			<div class="slide-control">
+				<button id="content-left" class="slide-left content-left"><i class="fa fa-angle-left"></i></button>
+				<button id="content-right" class="slide-right content-right"><i class="fa fa-angle-right"></i></button>
+			</div>
+		</div>
+		<!-- Testimony Slider Content -->
+		<div id="content-slider" class="content-slider testimony-wrapper">
+			<!-- Testimony Slider Item -->
+			<div class="slider-item">
+				<!-- Testimony Left -->
+
+
+				{% for item in feedbacks %}
+				<div class="testimony-item item-left">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="testimony-profile">
+
+								<h5>{{item.Name|title}}</h5>
+								<span>{{item.Experience|title}}</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="testimony-text">
+								<p>{{item.Comment}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+				<!-- Testimony Right -->
+				<!--<div class="testimony-item item-right">-->
+				<!--	<div class="row">-->
+				<!--		<div class="col-md-3 col-md-push-6 col-md-offset-3">-->
+				<!--			<div class="testimony-profile">-->
+
+				<!--				<h5>Name of person</h5>-->
+				<!--				<span>Great / Good / Average show anyone</span>-->
+				<!--			</div>-->
+				<!--		</div>-->
+				<!--		<div class="col-md-6 col-md-pull-3">-->
+				<!--			<div class="testimony-text">-->
+				<!--				<p>Show Comments Here I recommend this theme to anyone looking for a property theme with booking feature. VERY RECOMMENDED.</p>-->
+				<!--			</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--</div>-->
+			</div>
+
+			<!-- Testimony Slider Item -->
+			<!--<div class="slider-item">-->
+
+				<!-- Testimony Left -->
+			<!--	<div class="testimony-item item-left">-->
+			<!--		<div class="row">-->
+			<!--			<div class="col-md-3">-->
+			<!--				<div class="testimony-profile">-->
+
+			<!--					<h5>Name of person</h5>-->
+			<!--					<span>Great / Good / Average show anyone</span>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--			<div class="col-md-6">-->
+			<!--				<div class="testimony-text">-->
+			<!--					<p>Show Comments Here Simple and clean-easy to customize, the demo is so close to what I need. This theme can read my mind. AMAZING!</p>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		</div>-->
+			<!--	</div>-->
+
+				<!-- Testimony Right -->
+			<!--	<div class="testimony-item item-right">-->
+			<!--		<div class="row">-->
+			<!--			<div class="col-md-3 col-md-push-6 col-md-offset-3">-->
+			<!--				<div class="testimony-profile">-->
+
+			<!--					<h5>Name of person</h5>-->
+			<!--					<span>Great / Good / Average show anyone</span>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--			<div class="col-md-6 col-md-pull-3">-->
+			<!--				<div class="testimony-text">-->
+			<!--					<p>Show Comments Here I recommend this theme to anyone looking for a property theme with booking feature. VERY RECOMMENDED.</p>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		</div>-->
+			<!--	</div>-->
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+    <section class="customer-logos slider" style="background-image: url('{% static "images/bg_video_1.jpg" %}'); padding-top: 2em;
+    padding-bottom: 2em; border-top: 0px; border-bottom: 5px solid #FDAB26;">
+        <div class="slide"><img src="{% static 'images/client/Dymanix.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/ecocity.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/jp.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/Kalpatru.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/MICLlogo.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/raj.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/ramdev.jpg' %}"></div>
+        </section>
+	<!-- ====== ABOUT US SECTION ====== -->
+    <section id="about-us" class="page-section" style="background-color:#fff;">
+        <div class="container">
+
+            <!-- Brand Content -->
+
+            <div class="about-content">
+                <p style="color:#000;">“Owning a home is a keystone of wealth… <strong>both financial affluence and emotional
+						security.”</strong></p>
+                <a href="/contact" class="btn btn-primary" style="background-color: #39aa53; border-color: #39aa53;">Contact
+					Now</a>
+                <img src="{% static 'images/home/stamp.png' %}" alt="" style="margin-left: 0.5em;  width: 70px;">
+                 <img src="{% static 'images/home/maashakti_stamp.png' %}" alt="" style=" margin-left: 0.5em; transform: rotate(-33deg); width: 75px;">
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+   <!-- ====== FOOTER ====== -->
+        <footer id="footer" style="border-bottom: 5px solid #FDAB26;">
+            <div class="container">
+                <div class="row footer-body">
+                    <!-- Footer Brand Column -->
+                    <div class="col-md-4 col-sm-12 footer-column">
+                        <a href="https://www.google.com/search?q=Maa+Shakti+Property+Consultant&sxsrf=ALeKk0136LXQUAvWrXUCJUgyZQIhtacQLw%3A1617857642720&ei=aoxuYNmeK4u84-EP_tKy8AE&oq=Maa+Shakti+Property+Consultant&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAguEMcBEK8BMgIIJjoHCCEQChCgAVDZswlYnuEJYMHsCWgBcAB4AIAB_wGIAawSkgEGMC4xNS4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwjZ-9yw7e3vAhUL3jgGHX6pDB4Q4dUDCA0&uact=5"><img src="{% static 'images/pro/boss 1.png' %}" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+                        <a href="https://www.google.com/search?q=Maa+Shakti+Property+Consultant&sxsrf=ALeKk0136LXQUAvWrXUCJUgyZQIhtacQLw%3A1617857642720&ei=aoxuYNmeK4u84-EP_tKy8AE&oq=Maa+Shakti+Property+Consultant&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAguEMcBEK8BMgIIJjoHCCEQChCgAVDZswlYnuEJYMHsCWgBcAB4AIAB_wGIAawSkgEGMC4xNS4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwjZ-9yw7e3vAhUL3jgGHX6pDB4Q4dUDCA0&uact=5"><img src="{% static 'images/pro/boss 2.png' %}" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+
+                        <p>SHOP NO. 12, ANNAPURNA HEIGHTS, <br>INDRALOK PHASE 6, BHAYANDAR (East).</p>
+
+                         <div class="social">
+
+                            <a href="https://www.facebook.com/Maashakti921/" target="black">
+                                <img src="{% static 'images/icon/facebook-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.instagram.com/invites/contact/?i=lpzh6jgfks8q&utm_content=c9z1vfw" target="black">
+                                <img src="{% static 'images/icon/instagram-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://twitter.com/MAASHAKTI6?s=08" target="blank">
+                                <img src="{% static 'images/icon/twitter-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCAuBxrw8V4zZKzqJQhV-c0g" target="black">
+                                <img src="{% static 'images/icon/youtube-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/maa-shakti-maa-shakti-property-consultant-870800209" target="black">
+                                <img src="{% static 'images/icon/linkedin-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://wa.me/qr/EX2I7SOAGF2BN1" target="black">
+                                <img src="{% static 'images/icon/whatsapp-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="mailto:maashakti921@gmail.com" target="black">
+                                <img src="{% static 'images/icon/gmail-35.png' %}" alt="icon" />
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Usefull Link Column -->
+                    <div class="col-md-2 col-sm-6 footer-column">
+                        <h3 class="footer-title">Useful link</h3>
+                        <ul class="footer-menu">
+                            <li><a href="/property_consultant">Services</a></li>
+                            <li><a href="properties?typeofprop=1">Property Listing</a></li>
+                            <li><a href="https://www.maashaktiproperty.com/">Property Search</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Information Column -->
+                    <div class="col-md-2 col-sm-6 footer-column">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-menu">
+                            <li><a href="/aboutus">About Company</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="/blogs">BLOGS</a></li>
+                            <li><a href="/aboutus">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <!-- Instagram Column -->
+                    <div class="col-md-4 col-sm-12 footer-column">
+                        <h3 class="footer-title">Instagram</h3>
+                        <ul class="gallery-photo text-center">
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CMWQgZHHoDO/" target="blank"><img src="{% static 'images/instagram_1.jpg' %}" alt=""></a>
+                            </li>
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CMREfBJHwu1/" target="blank"><img src="{% static 'images/instagram_2.jpg' %}" alt=""></a>
+                            </li>
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CJ-ylnDHNTN/" target="blank"><img src="{% static 'images/instagram_3.jpg' %}" alt=""></a>
+                            </li>
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CKNrUpDnYbr/" target="blank"><img src="{% static 'images/instagram_4.jpg' %}" alt=""></a>
+                            </li>
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CKLZNroHI_i/" target="blank"><img src="{% static 'images/instagram_5.jpg' %}" alt=""></a>
+                            </li>
+                            <li style="width: 33%;">
+                                <a href="https://www.instagram.com/p/CKgkAm4nBJu/" target="blank"><img src="{% static 'images/instagram_6.jpg' %}" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            {% comment %}
+            <div class="copyright" style="border-top: 5px solid #FDAB26; background-color:#000;">
+                <div class="container clearfix">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <marquee scrollamount="8">   <p style="color:#fff;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+   &copy;<script>document.write(new Date().getFullYear());</script> <span style="color:#fff; font-family: 'Playball', cursive; text-transform: initial; font-size:16px;">This Website is made with <i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> by</span>
+   <a href="https://www.neevsofttechnologies.com/" target="_blank" style="font-family: 'Play', sans-serif; font-size:20px; padding-left:10px; line-height: 1;">NEEVSOFT TECHNOLOGIES</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  </marquee>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            {% endcomment %}
+        </footer>
+
+
+    <script type="text/javascript" src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' %}"></script>
+	<script>
+
+    function getsublocations(ofwhere){
+  var request = $.ajax({
+  url: "/getcities",
+  method: "GET",
+  data: { data : ofwhere },
+  dataType: "json"
+});
+
+request.done(function( msg ) {
+    var thehtml = "";
+  for(var i = 0; i < msg.cities.length; i++){
+  var strdata = "<option id='city" + msg.cityID[i] + "' value='"+ msg.cityID[i]+"'>"+msg.cities[i] +"</option>";
+  thehtml = thehtml + strdata;
+  }
+    document.getElementById("sublocationdrop").innerHTML = thehtml;
+    getAreasLocation();
+});
+
+request.fail(function( jqXHR, textStatus ) {
+  console.log( "Request failed: " + textStatus );
+});
+    }
+getsublocations(document.getElementById("stateoption").value);
+
+
+    function getAreasLocation(){
+        console.log("Fired");
+
+        var reqForGetLocationOfAreas = $.ajax({
+        url: "/getareas",
+        method: "GET",
+        data: {
+        locationstate:  document.getElementsByName("stateinput")[0].value,
+        locationcity: document.getElementsByName("cityinput")[0].value,
+        },
+        dataType: "json"
+        });
+
+        reqForGetLocationOfAreas.done(function( msg ) {
+        console.log(msg);
+
+
+        var thehtml = "";
+        for(var i = 0; i < msg.areas.length; i++){
+
+            var strdata = "<option value='"+ msg.areas[i][0]+"'>"+msg.areas[i][1] +"</option>";
+            thehtml = thehtml + strdata;
+        }
+        document.getElementById("locationstoreddrop").innerHTML = thehtml;
+
+        });
+
+        reqForGetLocationOfAreas.fail(function( jqXHR, textStatus ) {
+        console.log("Something went wrong!!!");
+        });
+
+    }
+
+	function getcompareprop(obj){
+		return `
+			<li class="compare-item text-left" id="comp`+obj.PropertyID+`">
+				<img src="/media/`+obj.PropertyImage+`" alt="">
+				<h4 class="property-title">`+obj.Title+`</h4>
+				<strong class="property-price"><i class="fa fa-rupee"></i> `+obj.Price+` `+obj.PriceUnit+`</strong>
+				<a href="#" data="`+obj.PropertyID+`" class="remove"><i class="fa fa-trash-o"></i></a>
+			</li>
+		`;
+	}
+    var props = [];
+	$(document).ready(function(e){
+
+        $(document).on('click', '.remove', function(e){
+            var id = $(this).attr('data');
+            $('#comp'+id).remove();
+            props = props.splice( $.inArray(id, props), 1 );
+            if(props.length > 1){
+                $('#comparebtn').removeClass('disabled');
+            }
+            else{
+                $('#comparebtn').addClass('disabled');
+            }
+            $('#comperrormsg').html('');
+        });
+
+		$(document).on('click', '#resetbtn', function(e){
+			$('#compareul').html('');
+            $('#comparebtn').addClass('disabled');
+            $('#comperrormsg').html('');
+            props = []
+		});
+		$(document).on('click', '.btn-compare', function(e){
+			var prop = $(this).attr('data');
+            if(props.length <= 3){
+                $('#comperrormsg').html('');
+                if(jQuery.inArray(prop, props) == -1){
+                    $.ajax({
+                        url: "/getsingleprop",
+                        method: "GET",
+                        data: { prop : prop },
+                        success: function(data){
+                            //var obj = JSON.parse(data);
+                            var html = getcompareprop(data[0].fields);
+                            if(props.length == 0){
+                                $('#compareul').html('');
+                            }
+                            $('#compareul').append(html);
+                            props.push(prop);
+                            $('#comparebtn').attr('href', '/compare?proparr=' + props);
+
+                            if(props.length > 1){
+                                $('#comparebtn').removeClass('disabled');
+                            }
+                            else{
+                                $('#comparebtn').addClass('disabled');
+                            }
+                        }
+                    });
+                }
+            }
+            else{
+                $('#comperrormsg').html('Maximum 4 properties can be compared !');
+            }
+		});
+	});
+
+	$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+	document.getElementById("searchbtn").onclick = function(){
+		document.getElementById("searchres").innerHTML = "Loading...";
+
+    var request = $.ajax({
+	url: "/search",
+	method: "GET",
+	data: { locationinput : document.getElementById("locationstoreddrop").value },
+	dataType: "json",
+	});
+	console.log("req sent");
+	request.done(function( msg ) {
+
+		console.log(msg.resultsonlocation.name);
+		var lengthofres = msg.resultsonlocation.name.length;
+
+		var resstr = "";
+		for(var i = 0; i<lengthofres; i++){
+			console.log("in loop");
+			resstr = resstr + "<div style='padding:10px; margin:5px; background-color:silver; border-radius:20px;'><b>" + msg.resultsonlocation.name[i] + "</b><br><i>Rs. " + msg.resultsonlocation.price[i] + "</i><br><b>" + msg.resultsonlocation.address[i] + "</b><br></div>";
+
+		}
+		if(lengthofres == 0){
+			document.getElementById("searchres").innerHTML = "No Results Found";
+		}
+		document.getElementById("searchres").innerHTML = resstr;
+		//document.write(msg.resultsonlocation.name + " " + msg.resultsonlocation.price + " " + msg.resultsonlocation.address);
+
+	});
+	request.fail(function( jqXHR, textStatus ) {
+	console.log( "Request failed: " + textStatus );
+	});
+	}
+	</script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.daterangepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/apps.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	<script>
+
+	$(document).ready(function() {
+    $('#stateoption').select2();
+    $("#stateoption").select2({
+    width: 'resolve' // need to override the changed default
+    });
+	$('#sublocationdrop').select2();
+	$("#sublocationdrop").select2({
+    width: 'resolve' // need to override the changed default
+    });
+	$('#locationstoreddrop').select2();
+	$("#locationstoreddrop").select2({
+    width: 'resolve' // need to override the changed default
+    });
+});
+	</script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                scrollwheel: false,
+                center: new google.maps.LatLng(-33.868898, 151.211208),
+            });
+
+            var iconBase = '{% static 'images/index.html' %}';
+            var icons = {
+                property: {
+                    icon: iconBase + 'icon_marker.png'
+                },
+            };
+
+            function addMarker(feature) {
+                var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                });
+            }
+
+            var features = [{
+                position: new google.maps.LatLng(-33.871059, 151.221364),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.866214, 151.211144),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.869764, 151.209213),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.870533, 151.214816),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.871177, 151.217252),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.868930, 151.191901),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.858028, 151.203870),
+                type: 'property'
+            }, ];
+
+            for (var i = 0, feature; feature = features[i]; i++) {
+                addMarker(feature);
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0DaKGlV-AAL09UAREeyUD_DOgEEyLwnU&amp;callback=initMap"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+    </script>
+
+
+    <script>
+        // var loader = document.querySelector(".loader");
+        // window.addEventListener("load", vanish);
+        // function vanish() {
+        // 	loader.classList.add("disppear");
+        // }
+        $(function() {
+            $('.pre-loader').fadeOut(500, function() {
+
+            });
+        });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+
+
+
+
+
+
+</body>
+
+<!-- Maa Shakti -->
+
+</html>

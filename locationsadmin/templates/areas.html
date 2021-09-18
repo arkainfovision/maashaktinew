@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}
+        {{title}}
+{% endblock title %}
+
+{% block content %}
+
+<form id="updateform" style="margin:0 auto; z-index:2; padding:25px; display:none; border:2px solid black; background-color:white; box-shadow:0px 2px 2px 0px silver;  position:fixed; justify-content:center;" action="/updateloc" method="POST" class="form-group">
+    {% csrf_token %}
+
+
+
+
+    <div style="display:flex; flex-direction:row; flex-wrap:wrap;">
+        <h3>Please enter new values: </h3>
+        <input type="text" id="locmodify" name="locmodify" class="form-control" style="display:none;">
+<input type="text" name="locationnamenew" id="locnamenew" class="form-control" required>
+
+<select onchange="getsublocationstwo(this.value)" class="form-control" onload="getsublocationstwo(this.value)" name="locationstatenew" id="locationstateupdate" required>
+{% for item in thedata %}
+
+  <option id="state{{item.STID}}" value="{{item.STID}}">{{item.StateName}}</option>
+
+{% empty %}
+<p>Nothing Found</p>
+{% endfor %}
+        </select>
+
+
+<select name="locationcitynew" id="sublocationdroptwo" class="form-control" required>
+
+
+</select>
+        </div>
+<div style="display:flex; justify-content:space-around; flex-direction:row;">
+<input type="submit" value="UPDATE"  class="btn btn-info">
+
+
+    <button class="btn btn-secondary" type="button" onclick="document.getElementById('updateform').style.display = 'none';">Cancel</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+<form class="form-group">
+{% csrf_token %}
+    <h3>Add new data</h3>
+    <div style="display:flex; flex-direction:row; flex-wrap:wrap;">
+<input type="text" name="locationname" class="form-control" required>
+
+<select id="locations"  class="form-control" onchange="getsublocations(this.value)" name="locationstate" required>
+
+{% for item in thedata %}
+
+  <option  value="{{item.STID}}">{{item.StateName}}</option>
+
+{% empty %}
+<p>Nothing Found</p>
+{% endfor %}
+        </select>
+
+
+<select  id="sublocationdrop" onchange="getAreasLocation()" class="form-control" name="locationcity" required>
+
+
+</select>
+
+<select  id="locationstoreddrop" class="form-control" name="locationarea" required>
+<option>Area containing selected city and state will appear here</option>
+
+</select>
+        </div>
+
+<input type="button" value="submit" class="btn btn-primary" onclick="submitLocationsAddForm()"><br>
+</form>
+<br><br><br>
+
+<table class="table table-striped">
+    <tr>
+        <th>Location Name</th>
+        <th>Location State</th>
+        <th>Location City</th>
+        <th>Delete</th>
+        <th>Modify</th>
+    </tr>
+    {% for items in locationsData %}
+        <tr style="vertical-align:middle;">
+
+            <td>{{items.LocationName}}</td>
+            <td>{{items.LocationState.StateName}}</td>
+            <td>{{items.LocationCity.CityName}}</td>
+            <td><a href="/deleteloc?locid={{items.LOCID}}"><i class="fa fa-trash" style="color:red;"></i></a></td>
+            <td><i class="fa fa-edit" style="color:green; cursor:pointer;" onclick="modifyField({{items.LOCID}}, '{{items.LocationName}}', {{items.LocationState.STID}}, {{items.LocationCity.CTID}} )"></i></td>
+        </tr>
+    {% endfor %}
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+
+function getAreasLocation(){
+    console.log("Fired");
+
+     var reqForGetLocationOfAreas = $.ajax({
+      url: "/getareas",
+      method: "GET",
+      data: {
+      locationstate:  document.getElementsByName("locationstate")[0].value,
+      locationcity: document.getElementsByName("locationcity")[0].value,
+      },
+      dataType: "json"
+    });
+
+    reqForGetLocationOfAreas.done(function( msg ) {
+      console.log(msg);
+
+
+      var thehtml = "";
+  for(var i = 0; i < msg.areas.length; i++){
+  var strdata = "<option value='"+ msg.areas[i]+"'>"+msg.areas[i] +"</option>";
+  thehtml = thehtml + strdata;
+  }
+    document.getElementById("locationstoreddrop").innerHTML = thehtml;
+
+    });
+
+    reqForGetLocationOfAreas.fail(function( jqXHR, textStatus ) {
+       console.log("Something went wrong!!!");
+    });
+
+}
+
+
+
+function submitLocationsAddForm(e){
+
+    // /locationformsubmit
+
+    var reqforlocationsubmit = $.ajax({
+      url: "/locationformsubmit",
+      method: "POST",
+      data: {
+      csrfmiddlewaretoken: document.getElementsByName("csrfmiddlewaretoken")[0].value,
+      locationname: document.getElementsByName("locationname")[0].value,
+      locationstate:  document.getElementsByName("locationstate")[0].value,
+      locationcity: document.getElementsByName("locationcity")[0].value,
+      locationarea:  document.getElementsByName("locationarea")[0].value
+      },
+      dataType: "html"
+    });
+
+    reqforlocationsubmit.done(function( msg ) {
+      console.log("Submitted");
+      window.location.reload();
+    });
+
+    reqforlocationsubmit.fail(function( jqXHR, textStatus ) {
+       console.log("Something went wrong!!!");
+    });
+}
+
+
+function closeModifyPop(){
+document.getElementById("updateform").style.display = "none";
+}
+
+
+function modifyField(locid, locname, locstate, loccity){
+    $('#state'+locstate).attr('selected', true);
+    getsublocationstwo(locstate);
+    $('#city'+loccity).attr('selected', true);
+    document.getElementById("locmodify").value = locid;
+    document.getElementById("locnamenew").value = locname;
+    document.getElementById("updateform").style.display = "block";
+}
+
+function getsublocations(ofwhere){
+  var request = $.ajax({
+  url: "/getcities",
+  method: "GET",
+  data: { data : ofwhere },
+  dataType: "json"
+});
+
+request.done(function( msg ) {
+    var thehtml = "";
+  for(var i = 0; i < msg.cities.length; i++){
+  var strdata = "<option id='city" + msg.cityID[i] + "' value='"+ msg.cities[i]+"'>"+msg.cities[i] +"</option>";
+  thehtml = thehtml + strdata;
+  }
+    document.getElementById("sublocationdrop").innerHTML = thehtml;
+    getAreasLocation();
+});
+
+request.fail(function( jqXHR, textStatus ) {
+  console.log( "Request failed: " + textStatus );
+});
+    }
+
+    $(document).ready(function(e){
+        var state = $('#locations').val();
+        var state2 = $('#locationstateupdate').val();
+         getsublocations(state);
+         getsublocationstwo(state2);
+    });
+
+
+
+
+function getsublocationstwo(ofwhere){
+  var request = $.ajax({
+  url: "/getcities",
+  method: "GET",
+  data: { data : ofwhere },
+  dataType: "json"
+});
+
+request.done(function( msg ) {
+    var thehtml = "";
+  for(var i = 0; i < msg.cities.length; i++){
+  var strdata = "<option  id='city" + msg.cityID[i] + "' value='"+ msg.cities[i]+"'>"+msg.cities[i] +"</option>";
+  thehtml = thehtml + strdata;
+  }
+    document.getElementById("sublocationdroptwo").innerHTML = thehtml;
+    getAreasLocation();
+});
+
+request.fail(function( jqXHR, textStatus ) {
+  console.log( "Request failed: " + textStatus );
+});
+    }
+</script>
+
+{% endblock content %}

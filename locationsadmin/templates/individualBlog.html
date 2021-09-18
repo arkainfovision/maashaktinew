@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+p{
+    color:black;
+}
+</style>
+{% for data in blog %}
+<section class="page-section" style="margin-top: 85px;">
+    <div class="container">
+
+
+                            {% comment %} <figure class="post-image"> {% endcomment %}
+                                <div class="row">
+                                    <h2 class="post-title" style="text-align:center;"><a href="#" style="color:#333; text-decoration: none; font-family: 'Acme';  margin-bottom: 1em;">We have added new features to kensington Property and Interior</a></h2>
+                                    <div class="col-md-6 col-sm-6">
+                                            <a ><img src="{{ MEDIA_URL }}/media/{{ data.blogimage }}" alt="Post list 1" style="width:100%;"></a>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+
+
+
+                                        <div class="post-entries">
+
+
+                                            <h4 style="font-family: -webkit-pictograph; line-height: 24px; text-align: justify; font-size: 16px;">{{data.summary}}</h4>
+                                            {% if data.point1|length %}
+                                                <blockquote>
+                                                    <p>{{data.point1}}</p>
+                                                    <footer>{{data.desc1}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point2|length %}
+                                                <blockquote>
+                                                    <p>{{data.point2}}</p>
+                                                    <footer>{{data.desc2}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point3|length %}
+                                                <blockquote>
+                                                    <p>{{data.point3}}</p>
+                                                    <footer>{{data.desc3}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point4|length %}
+                                                <blockquote>
+                                                    <p>{{data.point4}}</p>
+                                                    <footer>{{data.desc4}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point5|length %}
+                                                <blockquote>
+                                                    <p>{{data.point5}}</p>
+                                                    <footer>{{data.desc5}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+                                            {% if data.point6|length %}
+                                                <blockquote>
+                                                    <p>{{data.point6}}</p>
+                                                    <footer>{{data.desc6}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point7|length %}
+                                                <blockquote>
+                                                    <p>{{data.point7}}</p>
+                                                    <footer>{{data.desc7}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point8|length %}
+                                                <blockquote>
+                                                    <p>{{data.point8}}</p>
+                                                    <footer>{{data.desc8}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point9|length %}
+                                                <blockquote>
+                                                    <p>{{data.point9}}</p>
+                                                    <footer>{{data.desc9}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+                                            {% if data.point10|length %}
+                                                <blockquote>
+                                                    <p>{{data.point10}}</p>
+                                                    <footer>{{data.desc10}}</footer>
+                                                </blockquote>
+                                            {% endif %}
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-12"></div>
+                                </div>
+                            {% comment %} </figure> {% endcomment %}
+                            {% comment %} <ul class="post-meta">
+                                <li class="post-author"><a href="#">Admin</a></li>
+                                <li class="post-comment"><a href="#">10 Comments</a></li>
+                                <li class="post-category"><a href="#">Appartement</a></li>
+                            </ul> {% endcomment %}
+
+                               </div>
+                        </section>
+
+                        <!-- Post Author -->
+
+{% endfor %}
+{% endblock content %}

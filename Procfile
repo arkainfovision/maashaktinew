@@ -1,0 +1,1 @@
+web: gunicorn maashakti.wsgi debug; python manage.py collectstatic --no-input; 

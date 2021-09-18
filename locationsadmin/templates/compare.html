@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+    <!-- BEST DEALS -->
+    <section id="property-compare" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">COMPARE PROPERTIES</h2>
+            </div>
+            <div class="compare-table">
+                <div class="compare-column basic-info">
+                    <div class="column-heading">
+                        <h3 class="heading-title">Basic Info</h3>
+                    </div>
+                    <ul class="property-list-info">
+                        <li>Address</li>
+                        <li>Carpet Area</li>
+                        <li>Property Size</li>
+                        <li>Rate Sq. Ft.</li>
+                        <li>Builtup Area</li>
+                        <li>Floor Number</li>
+                        <li>Total Floors</li>
+                        <li>Bedroom</li>
+                        <li>Bathroom</li>
+                    </ul>
+                </div>
+                <div class="compare-column property-compare-wrapper">
+                {% for item in props %}
+
+
+                        <div class="property-compare-item">
+                            <div class="column-heading">
+                                <a href="/individualproperty?property={{item.PropertyID}}" class="property-image-title">
+                                    <div class="property-img"><img src="{{ MEDIA_URL}}/media/{{ item.PropertyImage }}" alt="#"></div>
+                                    <h3 class="property-title">{{item.Title}}</h3>
+                                </a>
+                                <strong class="property-price">	&#8377;  {{item.Price}} {{item.PriceUnit}} <small>{{item.Availability}}</small></strong>
+                            </div>
+                            <ul class="property-list-info">
+                                <li>{{item.PropertyAddress}}</li>
+                                <li>{{item.CarpetArea}}</li>
+                                <li>{{item.PropertySize}}</li>
+                                <li>{{item.RateSQFT}}</li>
+                                <li>{{item.BuiltUpArea}}</li>
+                                <li>{{item.FloorNumber}}</li>
+                                <li>{{item.TotalFloor}}</li>
+                                <li>{{item.Bedroom}}</li>
+                                <li>{{item.Bathroom}}</li>
+                            </ul>
+                        </div>
+
+
+
+                {% endfor %}
+                </div>
+            </div>
+            <div class="button-box text-center">
+                <a href="javascript:history.back()" class="btn btn-primary">Clear and Back to Property List</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

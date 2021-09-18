@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">BLOGS</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">BLOGS</li>
+            </ul>
+        </div>
+    </section>
+
+
+<!-- ====== POST LIST ====== -->
+    <section class="page-section" style="padding-top: 10px;">
+        <div class="container">
+            <div class="section-header" style="margin-top: 2em;">
+                <h2 class="section-title">Property Blogs</h2>
+            </div>
+            <div class="row">
+                {% for blog in blogs %}
+                <!-- Content -->
+                <div class="col-md-4">
+                    <div id="content">
+                        <!-- Post List -->
+                        <article class="post">
+                            <div class="explore-item">
+                                <a href="/individualblog?blogid={{blog.url}}" style="background-image: url({{ MEDIA_URL }}/media/{{ blog.blogimage }});"></a>
+                                <h3 class="item-title"><a href="/individualblog?blogid={{blog.url}}">{{blog.title}} <i class="fi flaticon-more"></i></a></h3>
+                            </div>
+
+                            <p class="post-entries" style="margin-top: 20px;">{{blog.summary}}
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ====== ABOUT US SECTION ====== -->
+
+    {% endblock content %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br>
+<style>
+article{
+    padding:10px;
+    margin:5%;
+    box-shadow:0px 2px 2px 0px silver;
+    color:black;
+}
+</style>
+{% for item in propertydetails %}
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<article class="post property-item">
+								<div class="post-property-header">
+									<div class="row">
+										<div class="col-md-8 col-sm-8">
+											<h3 class="post-title"><a style="color:#333;">{{item.Title}}</a></h3>
+										</div>
+										<div class="col-md-4 col-sm-4 text-right">
+											<span class="property-price">₹ {{item.Price}}</span>
+										</div>
+									</div>
+									<div class="property-address">
+										{{item.PropertyAddress}}
+									</div>
+									<div class="property-label">
+										<a class="property-label__status">{{item.Availability}}</a>
+									</div>
+								</div>
+
+								<!-- Property Gallery Slider -->
+								<div class="property-image">
+									{% comment %} <div id="property-slider" class="property-slider slick-initialized slick-slider"> {% endcomment %}
+										{% comment %} <div aria-live="polite" class="slick-list draggable">
+											<div class="slick-track" style="opacity: 1; width: 100%; transform: translate3d(0px, 0px, 0px); height: 55px;" role="listbox"> {% endcomment %}
+												<img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" alt="Property Photo" style="width: 100%;">
+											{% comment %} </div>
+										</div> {% endcomment %}
+
+									{% comment %} </div> {% endcomment %}
+								</div>
+									<br>
+
+								<!-- Property facility Detail -->
+								<div class="property-footer">
+									<div class="item-wide" style="width: 40%;"><span class="fi flaticon-wide"></span> {{item.PropertySize}} sq.ft.</div>
+									{% comment %} <div class="item-room"><span class="fi flaticon-room"></span> {{item.PropertySize}}</div>
+									<div class="item-bathroom"><span class="fi flaticon-bathroom"></span> {{item.PropertySize}}</div>
+									<div class="item-garage"><span class="fi flaticon-garage"></span> {{item.PropertySize}}</div> {% endcomment %}
+								</div>
+								<br>
+								<p style="color:black;">{{item.ShortDescription}}</p>
+								<!-- The Space Section -->
+								<hr>
+								<div class="row">
+									<div class="col-md-3 col-sm-3"><h3 class="heading-title">The Space</h3></div>
+									<div class="col-md-9 col-sm-9">
+										<ul class="feature-list">
+											<li>Accommodates: <strong>{{item.Accommodates}}</strong></li>
+											<li>Bathrooms: <strong>{{item.Bathroom}}</strong></li>
+											<li>Bed type: <strong>{{item.BedType}}</strong></li>
+											<li>Bedrooms: <strong>{{item.Bedroom}}</strong></li>
+											<li>Beds: <strong>{{item.Beds}}</strong></li>
+											<li>Check In: <strong>{{item.CheckIn}}</strong></li>
+											<li>Check Out: <strong>{{item.CheckOut}}</strong></li>
+											<li>Room type: <strong>{{item.ShortDescription}}</strong></li>
+										</ul>
+									</div>
+								</div>
+
+								<hr>
+								<div class="row">
+									<div class="col-md-3 col-sm-3"><h3 class="heading-title">Description</h3></div>
+									<div class="col-md-9 col-sm-9" style="color:black;">
+										<div>{{item.PropertyType}} | {{item.ShortDescription}} | {{item.Availability}}</div>
+								</div>
+								</div>
+								<!-- Availability Section -->
+								<hr>
+								<div class="row">
+									<div class="col-md-3 col-sm-3"><h3 class="heading-title">Availability</h3></div>
+									<div class="col-md-9 col-sm-9">
+										<h4 class="property-status">{{item.Availability}}</h4>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+{% endfor %}
+{% endblock content %}

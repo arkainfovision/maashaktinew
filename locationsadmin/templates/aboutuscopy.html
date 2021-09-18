@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 16px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+    .gallery-title {
+        font-size: 100px;
+        font-family: 'Kufam', cursive;
+        color: #fdab26;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    .filter-button {
+        font-size: 16px;
+        border: 2px solid #635e5a;
+        padding: 3px 50px;
+        text-align: center;
+        color: #635e5a;
+        margin-bottom: 30px;
+        background: transparent;
+    }
+
+    .filter-button:hover,
+    .filter-button:focus,
+    .filter-button.active {
+        color: #ffffff;
+        background-color: #fdab26;
+        outline: none;
+    }
+
+    .gallery_product {
+        margin: 0px;
+        padding: 0;
+        position: relative;
+    }
+
+    .gallery_product .img-info {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+        overflow: hidden;
+        color: #fff;
+        top: 0;
+        display: none;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    .property-item:hover {
+        background-color: #fff;
+     }
+    .gallery_product:hover .img-info {
+        display: block;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    /* end gallery */
+
+     :focus {
+        outline: none;
+    }
+
+    .faq-list>div {
+        border-bottom: 0.07em solid #ededed;
+        padding: 1em 0em;
+    }
+
+    .faq-list>div:last-child {
+        border: initial;
+    }
+
+    summary {
+        font-size: 1.4em;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    summary:hover {
+        color: #e31b1b;
+        transition: all 0.3s ease;
+    }
+
+    details[open] summary~* {
+        animation: sweep .5s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+            margin-left: -10px
+        }
+        100% {
+            opacity: 1;
+            margin-left: 55px
+        }
+    }
+
+    details[open] summary {
+        color: #e31b1b;
+    }
+
+    details[open] p {
+        border-left: 2px solid red;
+        margin-left: 55px;
+        padding-left: 25px;
+        opacity: 100;
+        transition: all 3s ease;
+    }
+
+    details[open] summary:after {
+        content: "-";
+        font-size: 3.2em;
+        margin: -0.5em 0.14em 0 0;
+        font-weight: 200;
+    }
+
+    .faq-body {
+        width: 100%;
+        margin: 1em auto;
+        box-shadow: 0px 0px 16px #5b5b5b;
+        border-radius: 0.2em;
+        background-color: #fff;
+    }
+
+    .faq-list {
+        margin-left: 2em;
+        margin-right: 2em;
+        padding: 2em 0;
+    }
+
+    summary::-webkit-details-marker {
+        display: none
+    }
+
+    summary:after {
+        background: transparent;
+        border-radius: 0.3em;
+        content: "+";
+        color: #e31b1b;
+        float: left;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: -0.3em 0.25em 0 0;
+        padding: 0;
+        text-align: center;
+        width: 25px;
+    }
+    @media only screen and (max-width: 500px) {
+                /* For mobile phones: */
+                .page-section .container-fluid .col-md-3 .content-wrapper{
+                   margin-top: 0em;
+                }
+            }
+</style>
+{% block content %}
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+
+
+
+
+    <!-- BEST DEALS -->
+        <section id="best-deals" class="page-section">
+            <div class="container-fluid" id="FAQ">
+            <!-- Start WOWSlider.com BODY section -->
+                <div id="wowslider-container1">
+                    <div class="ws_images">
+                        <ul>
+                            <li><img src="{% static 'images/about/miclprimeparkdahisar.jpg' %}" alt="banner34" title="banner34" id="wows1_0" /></li>
+                            <li>
+                                <img src="{% static 'images/about/miclprimeparkdahisar.jpg' %}" alt="bootstrap image slider" title="banner45" id="wows1_1" /></a>
+                            </li>
+                            <li><img src="{% static 'images/about/miclprimeparkdahisar.jpg' %}" alt="bg6 (1)" title="bg6 (1)" id="wows1_2" /></li>
+                        </ul>
+                    </div>
+                    <div class="ws_script" style="position:absolute;left:-99%"></div>
+                    <div class="ws_shadow"></div>
+                </div>
+                <script type="text/javascript" src="{% static 'engine1/wowslider.js' %}"></script>
+                <script type="text/javascript" src="{% static 'engine1/script.js' %}"></script>
+            <!-- End WOWSlider.com BODY section -->
+
+
+
+          <div class="col-md-9">
+
+                </div>
+
+                <div class="col-md-3" style="z-index: 99;">
+                    <div class="content-wrapper " style=" margin-top:-40em;">
+                   <div class="panel-body" style=" box-shadow: 2px 2px 10px 0px silver; border-radius: 7px; padding:40px 15px 40px 15px; background-color: #0000009e;">
+                        <form action="addcontact" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="number" class="form-control" name="contact" placeholder="Phone Number ">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="messages" cols="20" rows="4" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn-submit btn-primary btn" value="Submit" style="background-color: #f99d1b; border-color: #f99d1b;">
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+
+        </div>
+    </section>
+    <!-- ====== HOW TO BUY SECTION ====== --
+
+    <section id="main-slider" class="page-section featured-property-slider">
+
+	<div class="slider-item">
+		<img src="{% static 'images/about/miclprimeparkdahisar.jpg' %}" alt="#">
+		<div class="container">
+			<div class="property-item">
+				<div class="property-content">
+				 <div class="panel-body" style=" box-shadow: 2px 2px 10px 0px silver; border-radius: 7px; padding:40px 15px 40px 15px; background-color: #0000009e;">
+                        <form action="addcontact" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="number" class="form-control" name="contact" placeholder="Phone Number ">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="messages" cols="20" rows="4" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn-submit btn-primary btn" value="Submit" style="background-color: #f99d1b; border-color: #f99d1b;">
+                            </div>
+                        </form>
+                    </div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
+
+
+    <!-- ====== PAGE CONTENT ====== -->
+
+
+
+
+{% endblock content %}

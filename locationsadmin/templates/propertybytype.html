@@ -1,0 +1,749 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="sidebar-compare">
+    <div class="sidebar-wrapper">
+
+            <header class="heading-bar">
+            <a class="compare-toggle" style="background-color: #fff;"><i class="fa fa-times-circle" style="font-size: 26px;"></i></a>
+            <h3 class="heading-title" style="margin-top: 1em;">Compare Porperty</h3>
+        </header>
+        <ul class="compare-body text-center" id="compareul">
+            <li><i class="fa fa-spinner"></i></li>
+        </ul>
+        <footer class="footer-bar text-center">
+            <a  id="resetbtn" class="btn btn-primary btn-reset" style="background-color: #fdab26; border: #fdab26;">Reset</a>
+            <a  id="comparebtn" class="btn btn-primary disabled" style="background-color: #000; border: #000;">Compare</a>
+        </footer>
+        <p class="text-center text-danger" id="comperrormsg"></p>
+    </div>
+</div>
+    <!------header end-->
+    <!-- ====== PROPERTY ARCHIVE PAGE HEADER ====== -->
+    <section class="page-header" style="margin-top: 50px; background-position:center; background-image: url('{% static '/images/bg_page_header_1.jpg' %}')">
+        <div class="container" style="padding: 50px 0px;">
+            <h1 class="page-header-title" style="color: white;">Our Properties</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">Properties</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== BEST OFFER SECTION ====== -->
+    <section id="best-offer" class="page-section" style="margin-top: -2em;">
+        <div class="container">
+
+            <!-- Section Header / Title with Column Slider Control / Add 'header-column' to use this style -->
+            <div class="section-header header-column" style="box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);">
+                <h2 class="section-title">Best Offer</h2>
+                <!-- Slider Control -->
+
+
+
+               <div class="slide-control">
+                    <a href="javascript:history.back()"><button type="button" class="btn btn-primary" style="background-color:#312723; border-color:#312723; margin-top:9px;">Go Back</button></a>
+                </div>
+            </div>
+
+            </div>
+            <div class="container">
+
+            <div style="margin-top: 2em;">
+
+
+			{% for item in props %}
+				<div class="col-md-4 col-sm-6">
+                    <!-- Property Item -->
+                    <div class="property-item" style="box-shadow: 2px 2px 10px 0px silver; margin-bottom: 2em;">
+                        <div class="property-heading">
+                            {% if item.TxnType == "BUY" %}
+                            <span class="item-price">₹​ {{item.Price}} {{item.PriceUnit}}</span>
+                            {% else %}
+                            <span class="item-price">₹​ {{item.RentAmount}} {{item.RentAmountUnit}}/month</span>
+                            {% endif %}
+                            <a href="/individualproperty?property={{item.PropertyID}}" style="background-color: #fdab26; border-color: #fdab26;" class="item-detail btn">
+                            Detail <i class="fi flaticon-detail"></i></a>
+                        </div>
+                        <div class="img-box">
+                            <div class="explore-item">
+                            {% if item.PossessionStatus == "Under Construction" %}
+                            <span class="Underconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #ed3237; transform: rotate(-45deg); left:-45px;"> Under Construction </span>
+                            {% elif item.PossessionStatus == "Ready to Move"  %}
+                            <span class="Newconstruction" style="position: absolute; float: left; color: #fff; top: 38px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #92ca40; transform: rotate(-45deg); left:-45px;"> New Construction </span>
+                            {% else %}
+
+                            {% endif %}
+                            <!--<span class="Resale" style="position: absolute; float: left; color: #fff; top: 30px; text-align: center; width: 150px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #4773d6;"> Resale </span>-->
+
+                            <div class="property-label">
+
+                                {% if item.TxnType == "BUY" %}
+                            <a  class="property-label__type">House For Sale</a>
+                            {% else %}
+                            <a  class="property-label__type" style="background-color:purple;">House For Rent</a>
+                            {% endif %}
+
+
+                                {% comment %} <a href="#" class="property-label__status">{{item.Availability}}</a> {% endcomment %}
+                            </div>
+
+
+
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="img-box__image" style="height: 240px;">
+                                <img src="{{ MEDIA_URL }}/media/{{ item.PropertyImage }}" alt="" class="img-responsive" style="object-fit: cover;"></a>
+                        </div>
+
+
+
+                                <a href="#" class="btn-compare" data="{{item.PropertyID}}" title="Compare Property" style="position: absolute; bottom: 8px; right: 23px; font-size: 21px; width: 68px;
+                                height: 21px; line-height: 20px; color: #fff; text-align: center; z-index: 9; background-color: #fff; border-radius: 5px; box-shadow: 2px 2px 10px 0px rgb(64 64 64);">
+                                            <p style="font-family: 'Acme'; color:#000;">Compare</p>
+                                </a>
+
+                        </div>
+                        <div class="property-content">
+                            <a href="/individualproperty?property={{item.PropertyID}}" class="property-title">{{item.Bedroom}} BHK, {{item.Title}}</a>
+                            <div class="property-address">
+                                {{item.PossessionStatus}}, {{item.PropertyLocation}}
+
+                            </div>
+                            <div class="property-footer">
+                                <div class="item-wide" style="width: 40%;"><span class="fi flaticon-wide"></span> {{item.CarpetArea}} sq.ft.</div>
+                                                <div class="item-room" style="width: 20%;"><span class="fi flaticon-room"></span> {{item.Bedroom}}</div>
+                                                <div class="item-bathroom" style="width: 20%;"><span class="fi flaticon-bathroom"></span> {{item.Bathroom}}
+                                                </div>
+                                                <div class="item-garage" style="width: 20%;"><span class="fi flaticon-garage"></span> {{item.Parking}}
+                                                </div>
+                            </div>
+
+                        </div>
+						{% comment %} <a href=""><button class="btn btn-primary">Compare</button></a> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+
+               </div>
+               </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- ====== PROPERTY LIST CONTENT ====== -->
+    <section class="page-section">
+        <div class="container-fluid" style="margin-left:2em; margin-right:2em;">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <!-- Content -->
+                    <div id="content">
+                        <div class="row">
+                            <div class="col-md-12" id="propertyrow">
+                            {% for item in props %}
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                    <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="property-image">
+                                        <a href="/individualproperty?property={{item.PropertyID}}" class="property-image">
+                                            <img src="/media/{{item.PropertyImage}}" style="object-fit: cover;" alt="{{item.Title}}">
+                                        </a>
+                                          {% if item.PossessionStatus == "Under Construction" %}
+                                          <span class="Underconstruction" style="position: absolute; float: left; color: #fff; top: 44px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #ed3237; transform: rotate(-45deg); left:-45px;"> Under Construction </span>
+                                          {% elif item.PossessionStatus == "Ready to Move"  %}
+                                          <span class="Newconstruction" style="position: absolute; float: left; color: #fff; top: 44px; text-align: center; width: 200px; margin: 0; z-index: 1; font-size: 15px; padding: 4px 8px; background: #92ca40; transform: rotate(-45deg); left:-45px;"> New Construction </span>
+                                          {% else %}
+
+                                          {% endif %}
+                                        <a href="#" class="btn-compare" data="{{item.PropertyID}}" title="Compare Property">
+                                            <p style="font-family: 'Acme';">Compare</p>
+                                        </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div onclick="location.href='/individualproperty?property={{item.PropertyID}}';" style="cursor: pointer;"  class="property-content">
+                                            <h3 class="property-title"><a href="/individualproperty?property={{item.PropertyID}}">{{item.Bedroom}} BHK,  {{item.Title}}</a></h3>
+                                            <p>
+                                                {% if item.TxnType == "BUY" %}
+                                                <span class="property-price">₹ {{item.Price}} {{item.PriceUnit}}</span>
+                                                {% else %}
+                                                <span class="property-price">₹ {{item.RentAmount}} {{item.RentAmountUnit}}/month</span>
+                                                {% endif %}
+                                                {% if item.Availability != "" %}
+                                                        {% comment %}<span class="property-label__status" style="font-size: 13px;">{{item.Availability}}</span>{% endcomment %}
+                                                {% endif %}
+                                                <span class="property-label__status" style="font-size: 13px;">{{item.PossessionStatus}}</span>
+                                            </p>
+                                            <div class="property-address">
+                                                {{item.PropertyLocation}}
+                                            </div>
+
+                                            {% if item.ShortDescription != "" %}
+                                                {% if item.ShortDescription|length > 150 %}
+                                                    <p class="property-description">{{ item.ShortDescription|slice:"0:150" }}...</p>
+                                                {% else %}
+                                                    <p class="property-description">{{ item.ShortDescription }}</p>
+                                                {% endif %}
+
+                                            {% endif %}
+                                            <div class="property-footer">
+                                                <div class="item-wide" style="width:40%;"><span class="fi flaticon-wide"></span> {{item.CarpetArea}} sq.ft.</div>
+                                                <div class="item-room" style="width:20%;"><span class="fi flaticon-room"></span> {{item.Bedroom}}</div>
+                                                <div class="item-bathroom" style="width:20%;"><span class="fi flaticon-bathroom"></span> {{item.Bathroom}}
+                                                </div>
+                                                <div class="item-garage" style="width:20%;"><span class="fi flaticon-garage"></span> {{item.Parking}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div id="sidebar" style="margin-top: -3em;">
+                        <!-- widget Booking -->
+                        <div class="widget widget-booking">
+                            <!-- Panel Box -->
+                            <div class="panel-box">
+                                <!-- Panel Header / Title -->
+                                <div class="panel-header">
+                                    <h3 class="text-center" style="color: #fdab26; font-family: 'Work Sans';
+    text-transform: uppercase;">Book Now</h3>
+                                </div>
+                                <!-- Panel Body -->
+
+
+                                <!-- widget section Search Property -->
+                                <div class="widget">
+                                    <!-- Search Tabmenu -->
+                                    <div class="search-tabmenu">
+                                        <!-- Tabmenu Navigation -->
+                                        <div class="tab-content">
+                                            <!-- Tab Content For Sale -->
+                                            <div role="tabpanel" class="tab-pane active" id="for-sale">
+                                                <form action="/search" method="post" id="searchform">
+                                                    {% csrf_token %}
+                                                    <div class="form-body">
+                                                        <div class="form-group">
+                                                            {% comment %} {% if item.STID|slugify == stateid|slugify %} selected {% endif %} {% endcomment %}
+                                                            <label for="sale-location">Property States</label>
+                                                            <select class="form-control" id="state" name="stateinput" onchange="getsublocations(this.value)" onload="getsublocations(this.value)">
+                                                            <option value="0">Any State</option>
+                                                                {% for item in state %}
+
+                                                                    <option id="state{{item.STID}}" value="{{item.STID}}">{{item.StateName}}</option>
+                                                                {% empty %}
+                                                                <p>Nothing Found</p>
+                                                                {% endfor %}
+													        </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="sale-location">Property Cities</label>
+
+                                                            <select  id="sublocationdrop" onchange="getAreasLocation(this.value)" class="form-control" name="cityinput" required>
+                                                                        <option value="0">Any City</option>
+                                                            </select>
+                                                        </div>
+
+
+
+<script>
+
+$(document).on('click','.property-content',function(){
+    if($(this).data('ref') == undefined || $(this).data('ref') == "") return;
+        window.location.href = `individualproperty?property=${$(this).data('ref')}`
+    })
+
+
+    function getcompareprop(obj){
+		return `
+			<li class="compare-item text-left" id="comp`+obj.PropertyID+`">
+				<img src="/media/`+obj.PropertyImage+`" alt="">
+				<h4 class="property-title">`+obj.Title+`</h4>
+				<strong class="property-price" style="font-family: Helvetica'; color: #000; font-size: 16px;"><i class="fa fa-rupee" style="font-size: 14px; color:#000;"></i> `+obj.Price+` `+obj.PriceUnit+`</strong>
+				<a href="#" data="`+obj.PropertyID+`" class="remove"><i class="fa fa-trash-o"></i></a>
+			</li>
+		`;
+	}
+    var props = [];
+	$(document).ready(function(e){
+
+        $(document).on('click', '.remove', function(e){
+            var id = $(this).attr('data');
+            $('#comp'+id).remove();
+            props = props.splice( $.inArray(id, props), 1 );
+            if(props.length > 1){
+                $('#comparebtn').removeClass('disabled');
+            }
+            else{
+                $('#comparebtn').addClass('disabled');
+            }
+            $('#comperrormsg').html('');
+        });
+
+		$(document).on('click', '#resetbtn', function(e){
+			$('#compareul').html('');
+            $('#comparebtn').addClass('disabled');
+            $('#comperrormsg').html('');
+            props = []
+		});
+		$(document).on('click', '.btn-compare', function(e){
+			var prop = $(this).attr('data');
+            if(props.length <= 3){
+                $('#comperrormsg').html('');
+                if(jQuery.inArray(prop, props) == -1){
+                    $.ajax({
+                        url: "/getsingleprop",
+                        method: "GET",
+                        data: { prop : prop },
+                        success: function(data){
+                            //var obj = JSON.parse(data);
+                            var html = getcompareprop(data[0].fields);
+                            if(props.length == 0){
+                                $('#compareul').html('');
+                            }
+                            $('#compareul').append(html);
+                            props.push(prop);
+                            $('#comparebtn').attr('href', '/compare?proparr=' + props);
+
+                            if(props.length > 1){
+                                $('#comparebtn').removeClass('disabled');
+                            }
+                            else{
+                                $('#comparebtn').addClass('disabled');
+                            }
+                        }
+                    });
+                }
+            }
+            else{
+                $('#comperrormsg').html('Maximum 4 properties can be compared !');
+            }
+		});
+	});
+
+    function getproperty(obj, pk){
+        var price = 0;
+        var unit = 0;
+        // console.log(obj);
+        if (obj.TxnType == "RENT"){
+            price = obj.RentAmount;
+            unit = obj.RentAmountUnit;
+            unit = unit+"/month";
+        }
+        else if(obj.TxnType == "BUY"){
+            price = obj.Price;
+            unit = obj.PriceUnit;
+        }
+        var availhtml = '';
+        if(obj.Availability != ''){
+            availhtml = '<a href="#" class="property-label__status">'+obj.Availability+'</a>';
+        }
+        var sdesc = obj.ShortDescription;
+        if(sdesc != ''){
+            if(sdesc.length > 150){
+                sdesc = sdesc.substr(0, 150);
+                sdesc = sdesc+'...';
+            }
+        }
+    return `
+        <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-5">
+                    <a href="/individualproperty?property=`+pk+`" class="property-image">
+                        <img src="{{ MEDIA_URL }}/media/`+obj.PropertyImage+`" alt="Post list 1">
+                    </a>
+                    <a href="compare.html" class="btn-compare" data="`+pk+`" title="Compare Property">
+                        <p style="font-family: 'Acme';">Compare</p>
+                    </a>
+                </div>
+
+
+
+                <div class="col-lg-7">
+
+
+                        <div data-ref=${pk} onclick="location.href='/individualproperty?property=`+pk+`" class="property-content" style="cursor: pointer;">
+                            <h3 class="property-title" style="text-decoration: none;">`+obj.Title+`</h3>
+                            <p>
+                                <span class="property-price">₹ `+price+` `+unit+`</span>
+                                <span class="property-label">
+                                    {% comment %} <a href="#" class="property-label__type">Villa For Sale</a> {% endcomment %}
+                                    `+availhtml+`
+                                </span>
+                            </p>
+                            <div class="property-address">
+                                `+obj.PropertyAddress+`
+                            </div>
+                            <p class="property-description">`+sdesc+`</p>
+                            <div class="property-footer">
+                                <div class="item-wide" style="width:40%;"><span class="fi flaticon-wide"></span>`+obj.CarpetArea+` sq.ft</div>
+                                <div class="item-room" style="width:20%;"><span class="fi flaticon-room"></span> `+obj.Bedroom+`</div>
+                                <div class="item-bathroom" style="width:20%;"><span class="fi flaticon-bathroom"></span> `+obj.Bathroom+`
+                                </div>
+                                <div class="item-garage" style="width:20%;"><span class="fi flaticon-garage"></span> `+obj.Parking+`
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+            </div>
+        </div>
+    `;
+    }
+
+    function getrentdiv(){
+    return `
+        <label for="rent-location">Rent Range</label> <br>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-around">
+        <input type="number" value="" required name="minprice" style="width:80px; height:auto;" class="form-control" placeholder="Min">
+        <input type="number" value="" required name="maxprice" style="width:80px; height:auto;" class="form-control" placeholder="Max">
+        <select name="priceunit" class="form-control" style="width:80px; height:auto;">
+            <option value="K">K</option>
+            <option value="Lakhs">Lakhs</option>
+            <option value="Cr">Cr</option>
+        </select></div>
+    `;
+}
+
+function getpricediv(){
+    return `
+        <label for="rent-location">Price Range</label> <br>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-around">
+        <input type="number" required value="" step="0.01" name="minprice" style="width:80px; height:auto;" class="form-control" placeholder="Min">
+        <input type="number" required value="" step="0.01" name="maxprice" style="width:80px; height:auto;" class="form-control" placeholder="Max">
+        <select name="priceunit" class="form-control" style="width:80px; height:auto;">
+            <option value="K">K</option>
+            <option value="Lakhs">Lakhs</option>
+            <option value="Cr">Cr</option>
+        </select></div>
+    `;
+}
+
+    $(document).ready(function(e){
+
+        $(document).on('change', '#txntypedropdown', function(e){
+            var val = $(this).val();
+            if(val == '0'){
+                $('#pricediv').html('');
+                $('#rentdiv').html('');
+            }
+            else if(val == 'Buy'){
+                var html = getpricediv();
+                $('#pricediv').html(html);
+                $('#rentdiv').html('');
+            }
+            else if(val == 'Rent'){
+                var html = getrentdiv();
+                $('#pricediv').html('');
+                $('#rentdiv').html(html);
+            }
+        });
+
+        var typeofprop = "{{typeofprop}}";
+        $('#type'+typeofprop).attr('selected', true);
+
+    $(document).on('change', '#txntypedropdown', function(e){
+        var val = $(this).val();
+        if(val == ''){
+            $('#pricediv').addClass('hidden');
+            $('#rentdiv').addClass('hidden');
+        }
+        else if(val == 'Buy'){
+            $('#pricediv').removeClass('hidden');
+            $('#rentdiv').addClass('hidden');
+        }
+        else if(val == 'Rent'){
+            $('#pricediv').addClass('hidden');
+            $('#rentdiv').removeClass('hidden');
+        }
+    });
+
+        $(document).on('submit', '#searchform', function(e){
+            e.preventDefault();
+            var formdata = $('#searchform').serializeArray();
+            $('#propertyrow').html("<h2 class='text-center mt-3'>Searching...</h2>");
+            window.scrollTo(0, 0);
+            $.ajax({
+                type: 'POST',
+                url: '/getprops',
+                data: formdata,
+                success: function(data){
+                    console.log(data);
+                    if (typeof data == 'object' && data.length > 0){
+                    $('#propertyrow').html("");
+                    data.forEach(function(obj){
+                        console.log(data);
+                        var html = getproperty(obj.fields, obj.pk);
+                        $('#propertyrow').append(html);
+                    });
+                    }
+                    else{
+                        {% comment %} console.log(data); {% endcomment %}
+                        if(data.length == 0){
+                            $('#propertyrow').html("<h2 class='text-center mt-3'>No Properties Found</h2>");
+                        }
+                        else{
+                            $('#propertyrow').html("Please check your input | Something went wrong");
+                        }
+
+                    }
+                }
+            });
+        });
+
+        var stateid = "{{stateid}}";
+        $('#state'+stateid).prop('selected', true);
+        getsublocations($('#state').val());
+        var cityid = "{{cityid}}";
+        $('#city'+cityid).prop('selected', true);
+    });
+
+    function getsublocations(ofwhere){
+        console.log(ofwhere);
+        if(ofwhere != ''){
+            var request = $.ajax({
+            url: "/getcities",
+            method: "GET",
+            data: { data : ofwhere },
+            dataType: "json"
+            });
+
+            request.done(function( msg ) {
+                $('#sublocationdrop').html('');
+                var thehtml = "<option value='0'>Any City</option>";
+            for(var i = 0; i < msg.cities.length; i++){
+            var strdata = "<option id='city" + msg.cityID[i] + "' value='"+ msg.cityID[i]+"'>"+msg.cities[i] +"</option>";
+            thehtml = thehtml + strdata;
+            }
+                $('#sublocationdrop').html(thehtml);
+                $('#sublocationdrop').select2();
+                getAreasLocation();
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+            console.log( "Request failed: " + textStatus );
+            });
+        }
+        else{
+            console.log('done');
+            $('#sublocationdrop').html('');
+            var thehtml = "<option selected value='0'>Any City</option>";
+            $('#sublocationdrop').html(thehtml);
+            $('#sublocationdrop').select2();
+            $('#areadropdown').html('');
+            var thehtml = "<option selected value='0'>Any Area</option>";
+            $('#areadropdown').html(thehtml);
+            $('#areadropdown').select2();
+            $('#locationstoreddrop').html('');
+            var thehtml = "<option selected value='0'>Any Location</option>";
+            $('#locationstoreddrop').html(thehtml);
+            $('#locationstoreddrop').select2();
+        }
+    }
+
+    function getAreaByLocation(locid){
+        var reqForGetAreaByLoc = $.ajax({
+            url: "/getareasbasedonlocation",
+            method: "GET",
+            data: {
+            locid:  locid,
+            },
+            dataType: "json"
+        });
+
+        reqForGetAreaByLoc.done(function( msg ) {
+            console.log(msg);
+            var thehtml = "<option value='0'>Any Location</option>";
+            for(var i = 0; i < msg.data.length; i++){
+
+                var strdata = "<option value='"+ msg.data[i]+"'>"+msg.data[i] +"</option>";
+                thehtml = thehtml + strdata;
+            }
+            document.getElementById("areadropdown").innerHTML = thehtml;
+
+        });
+
+        reqForGetAreaByLoc.fail(function( jqXHR, textStatus ) {
+        console.log("Something went wrong!!!");
+        });
+    }
+
+    function getAreasLocation(){
+        console.log("Fired");
+
+        var reqForGetLocationOfAreas = $.ajax({
+            url: "/getareas",
+            method: "GET",
+            data: {
+            locationstate:  document.getElementsByName("stateinput")[0].value,
+            locationcity: document.getElementsByName("cityinput")[0].value,
+            },
+            dataType: "json"
+        });
+
+        reqForGetLocationOfAreas.done(function( msg ) {
+        console.log(msg);
+
+
+        var thehtml = "<option value='0'>Any Area</option>";
+            for(var i = 0; i < msg.areas.length; i++){
+
+            var strdata = "<option value='"+ msg.areas[i][0]+"'>"+msg.areas[i][1] +"</option>";
+            thehtml = thehtml + strdata;
+            }
+        document.getElementById("locationstoreddrop").innerHTML = thehtml;
+        getAreaByLocation(document.getElementById("locationstoreddrop").value);
+
+        });
+
+        reqForGetLocationOfAreas.fail(function( jqXHR, textStatus ) {
+        console.log("Something went wrong!!!");
+        });
+
+    }
+</script>
+                                                        <div class="form-group">
+                                                            <label for="rent-location">Property Location</label>
+                                                            <select name="locationinput" onchange="getAreaByLocation(this.value)" class="form-control" id="locationstoreddrop">
+													            <option value="0">Any Location</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="rent-location">Property Area</label>
+                                                            <select name="areainput" class="form-control" id="areadropdown">
+													            <option value="0">Any Area</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="rent-location">Transaction Type</label>
+                                                            <select name="txntype" class="form-control" id="txntypedropdown">
+                                                                <option value="0">Any Type</option>
+                                                                <option value="Buy">Buy</option>
+                                                                <option value="Rent">Rent</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                                    <label for="sale-type">Property Type</label>
+                                                                    <select name="proptype" class="form-control" id="sale-type">
+                                                            <option>Any Type</option>
+                                                            {% for type in allproptypes %}
+
+                                                                        <option id="type{{type.TypeID}}" value="{{type.TypeID}}" style="width: 100%;">{{type.TypeName}}</option>
+                                                                    {% empty %}
+                                                                    <p>Nothing Found</p>
+                                                                    {% endfor %}
+                                                        </select>
+                                                                </div>
+
+                                                        <div role="tabpanel" class="tab-pane" id="for-rent">
+
+
+                                                                <div class="form-group" id="pricediv">
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group" id="rentdiv">
+                                                                </div>
+
+                                                            </div>
+
+
+
+                                                            <div class="form-group" style="padding: 10px; background-color: #635e5a4d;"><span class="fi flaticon-bathroom"></span> BATHROOM</div>
+                                                            <label style="display: table-column-group;">
+                                                      <input type="checkbox" name="bathrooms" checked value="0"> 0 Bath
+                                                 </label>
+                                                            <label style="display: flow-root; float:right;">
+                                                     <input type="checkbox" name="bathrooms" checked value="2"> 2  Bath
+                                                 </label>
+                                                            <label style="display: flow-root;">
+                                                     <input type="checkbox" name="bathrooms" checked value="1"> 1 Bath
+                                                 </label>
+                                                            <label style="display: flow-root; float:right;">
+                                                     <input type="checkbox" name="bathrooms" checked value="4"> 4 Bath
+                                                 </label>
+                                                            <label style="display: flow-root;">
+                                                     <input type="checkbox" name="bathrooms" checked value="3"> 3 Bath
+                                                 </label>
+
+                                                            <div class="form-group">
+                                                                <!--BEDROOM checkbox-->
+
+                                                                <div class="form-group" style="padding: 10px; background-color: #635e5a4d;"><span class="fi flaticon-room"></span> BEDROOM</div>
+
+                                                            <label style="display: flow-root; float: right;">
+                                                        <input type="checkbox" name="bedroom" checked value="2"> 2 BHK
+                                                    </label>
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" checked value="1"> 1 BHK
+                                                    </label>
+
+                                                    <label style="display: flow-root; float: right;">
+                                                        <input type="checkbox" name="bedroom" checked value="4"> 4 BHK
+                                                    </label>
+
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" checked value="3"> 3 BHK
+                                                    </label>
+
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" checked value="5"> 5 BHK
+                                                    </label>
+
+                                                                {% comment %} <div class="form-group" style="text-align: center;">
+                                                                    <label for="rent-type">AMENITIES</label>
+                                                                    <select class="form-control" id="rent-type">
+													<option>Any AMENITIES</option>
+												</select>
+                                                                </div> {% endcomment %}
+                                                            </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <span id="searchres" class="text-center"></span>
+                                            <button class="btn btn-primary btn-submit" id="" type="submit"style="background-color: #fdab26; border-color: #fdab26;"><i class="fa fa-search"></i> Search</button>
+                                        </div>
+                                    </div>
+                                    </form>
+
+                                    {% comment %}
+                                    <button class="btn btn-primary" onclick="goBack()" style="width: 100%; float: right;
+                                    background-color: #000; border-color: #000;">&laquo; Go Back</button>
+
+                                        <button class="btn btn-warning" style="width:100%; color: #fff;
+    background-color: #000000;    border-color: #8e8e8e; padding:6px; display:block;" onclick="if(document.getElementById('showmorediv').style.display == 'none'){document.getElementById('showmorediv')
+    .style.display='block'; this.innerHTML = 'SHOW LESS FILTERS';}else{ document.getElementById('showmorediv').style.display='none'; this.innerHTML = 'SHOW MORE FILTERS';}">SHOW MORE FILTERS</button>
+                                        <br>{% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Content For Rent-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

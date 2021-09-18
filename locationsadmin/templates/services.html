@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 16px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+.post .post-entries {
+    font-size: 16px;
+    font-family: 'Work Sans';
+}
+
+
+
+</style>
+{% block content %}
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">Services</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">services</li>
+            </ul>
+        </div>
+    </section>
+
+        <section class="page-section" style="padding-top: 10px;">
+            <div class="container">
+                <div class="section-header" style="margin-top: 2em;">
+                    <h2 class="section-title">Our Services</h2>
+                </div>
+            </div>
+        </section>
+
+
+     <section id="page-builder" class="page-section">
+        <div class="row tpb-row" style="background-color: #fff;">
+	 <!-- Slider Item -->
+	<div class="container">
+	    <div class="message-box rotated" style="z-index: 99999;">
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000;"><a href="/feedback" target="blank" style="color: rgb(62, 255, 62); text-decoration: none;">Feedback</a> </button>
+
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000; color: rgb(96, 231, 255);" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</button>
+
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" style="padding: 1px 3px;border-radius: 4px; font-size: 16px;">&times;</button>
+                                    <h4 class="modal-title" style="text-align: center; font-family: 'Acme';
+                                    font-size: 1.5em;">
+                                        ENQUIRE NOW
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" method="post" action="addcontact">
+										{% csrf_token %}
+                                        <p style="text-align: center;"> Send your ENQUIRE we will get back to you as early as possible. </p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="number" name="contact" class="form-control" id="number" placeholder="contact no.*" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Your Message Here" maxlength="6000" rows="3" style="box-shadow: 2px 2px 10px 0px #e3e3e3;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-success btn-block">Send Now &rarr;</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!----->
+	 <!-- Slider Item -->
+	</section>
+
+
+    <section id="main-slider" class="page-section featured-property-slider">
+	<!-- Slider Item -->
+	<div class="slider-item">
+		<img src="{% static 'images/home_hero_image_4c.jpg' %}" alt="#">
+		<div class="container">
+			<div class="property-item">
+				<div class="property-content">
+					<h2 class="property-title"><a href="#Finance">Finance</a></h2>
+					<h5 style="font-family: 'Staatliches', cursive; font-size: 20px; letter-spacing: 2px;">
+					    <span style="background-color:orange; padding:7px; border-radius: 11px;">Home Loan</span> and
+					    <span style="background-color:yellow;padding:7px; border-radius: 11px;">Mortage Loan </span></h5>
+
+
+				</div>
+				<div class="property-heading">
+					<span class="item-price" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</span>
+					<a href="tel:9594888007" class="item-detail btn" tabindex="-1">Call Us <i class="fi flaticon-detail"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Slider Item -->
+	<div class="slider-item">
+		<img src="{% static 'images/home_hero_image_4b.jpg' %}" alt="#">
+		<div class="container">
+			<div class="property-item">
+				<div class="property-content">
+					<h2 class="property-title"><a href="#Property">Property Consultant</a></h2>
+					<p class="property-description" >“Owning a home is a keystone of wealth… both financial affluence and emotional security.”</p>
+
+				</div>
+				<div class="property-heading">
+					<span class="item-price" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</span>
+					<a href="tel:9594888007" class="item-detail btn" tabindex="-1">Call Us <i class="fi flaticon-detail"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Slider Item -->
+	<div class="slider-item">
+		<img src="{% static 'images/home_hero_image_4a.jpg' %}" alt="#">
+		<div class="container">
+			<div class="property-item">
+				<div class="property-content">
+					<h2 class="property-title"><a href="#Interior">Interior Design</a></h2>
+					<h5 style="font-family: 'Staatliches', cursive; font-size: 20px; letter-spacing: 2px;">
+					    <span style="background-color:#92ca40; padding:7px; border-radius: 11px;">Commercial</span> and
+					    <span style="background-color:#47f4e8; padding:7px; border-radius: 11px;"> Residential </span></h5>
+
+
+				</div>
+				<div class="property-heading">
+					<span class="item-price" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</span>
+					<a href="tel:9594888007" class="item-detail btn" tabindex="-1">Call Us <i class="fi flaticon-detail"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+ <!-- ====== TESTIMONY SECTION ====== -->
+
+ <!-- ====== TESTIMONY SECTION ====== -->
+<section id="services" class="page-section">
+	<div class="container">
+		<!-- Section Title -->
+		<div class="section-header header-center">
+			<h2 class="section-title">About Maashakti Property</h2>
+		</div>
+		<div class="row">
+			<!-- Services Content -->
+			<div class="col-md-12">
+				<div class="services-content" id="up">
+					<ul class="services-item row">
+						<!-- Services Item -->
+						<li class="col-md-3 col-sm-6">
+							<div class="services-icon"><i class="fa fa-legal" style="color:#fdab26;"></i></div>
+							<div class="services-description">
+								<h4>Legal Support</h4>
+								<p>We provide our customers legal support across the collaborative spectrum</p>
+							</div>
+						</li>
+						<!-- Services Item -->
+						<li class="col-md-3 col-sm-6">
+							<div class="services-icon"><i class="fa fa-shield" style="color:#fdab26;"></i></div>
+							<div class="services-description">
+								<h4>Insurance Protection</h4>
+								<p>We make sure you and your company are protected against misfortunes</p>
+							</div>
+						</li>
+						<!-- Services Item -->
+						<li class="col-md-3 col-sm-6">
+							<div class="services-icon"><i class="fa fa-support" style="color:#fdab26;"></i></div>
+							<div class="services-description">
+								<h4>Good Maintenance</h4>
+								<p>Maintenance can be overwhelming, lets us take care of it</p>
+							</div>
+						</li>
+						<!-- Services Item -->
+						<li class="col-md-3 col-sm-6">
+							<div class="services-icon"><i class="fa fa-star" style="color:#fdab26;"></i></div>
+							<div class="services-description">
+								<h4>10 Years Experience</h4>
+								<p>Our 10 years experience will guarantee you will get the best recommendation</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+ <!-- ====== TESTIMONY SECTION ====== -->
+
+     <section class="page-section" style="padding-top: 10px;">
+        <div class="container">
+
+            <div class="row">
+
+
+                <!-- Content -->
+                <div class="col-md-12">
+                    <div id="content" >
+                        <!-- Post List -->
+                        <article class="post">
+                            <div class="row" id="Finance">
+
+                            <div class="col-md-4">
+                                <div class="explore-item">
+                                    <a style="background-image: url({% static 'images/index_5_property_2.png' %});"></a>
+                                    <h3 class="item-title"><a href="#up">Finance <i class="fi flaticon-more"></i></a></h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <p class="post-entries" style="padding:1em; font-size: 16px;
+    font-family: 'Work Sans';">Maa Shakti Finance offers  Home Loans to prospective Home buyers. We at Maa Shakti  Finance understand that buying a home and building it,
+    is more or less a once a lifetime event and we pledge to make the process towards this event, a hassle free one.
+    The rates at which we offer Home Loans will be one of the lowest you will find in the market, as we are associated with top notch leading banks and NBFCs.
+                                </p>
+                            </div>
+
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div id="content" >
+                        <!-- Post List -->
+                        <article class="post">
+                            <div class="row" id="Property">
+
+                            <div class="col-md-4">
+                                <div class="explore-item">
+                                    <a  style="background-image: url({% static 'images/index_5_property_2.png' %});"></a>
+                                    <h3 class="item-title"><a href="#">Property Consultant <i class="fi flaticon-more"></i></a></h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <p class="post-entries" style="padding:1em; font-size: 16px;
+    font-family: 'Work Sans';">quis malesuada est cursus sed. Fusce sit amet vulputate nisl, ut endrerit felis. Mauris in urna malesuada, tristique sapien quis, pharetra ante. Mauris mauris orci, tempus non ultrices eget, lobortis quis odio. Donec et auctor
+                                nisl.
+                                </p>
+                            </div>
+
+                            </div>
+                        </article>
+                        <!-- Post List -->
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div id="content">
+                        <!-- Post List -->
+                        <article class="post">
+                            <div class="row" id="Interior">
+
+                            <div class="col-md-4">
+                                <div class="explore-item">
+                                    <a  style="background-image: url({% static 'images/index_5_property_2.png' %});"></a>
+                                    <h3 class="item-title"><a href="#">Interior <i class="fi flaticon-more"></i></a></h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <p class="post-entries" style="padding:1em; font-size: 16px;
+    font-family: 'Work Sans';">quis malesuada est cursus sed. Fusce sit amet vulputate nisl, ut endrerit felis. Mauris in urna malesuada, tristique sapien quis, pharetra ante. Mauris mauris orci, tempus non ultrices eget, lobortis quis odio. Donec et auctor
+                                nisl.
+                                </p>
+                            </div>
+
+                            </div>
+                        </article>
+                        <!-- Post List -->
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- ====== TESTIMONY SECTION ====== -->
+
+<!-- ====== TESTIMONY SECTION ====== -->
+    <section class="customer-logos slider" style="background-image: url('{% static "images/bg_video_1.jpg" %}'); padding-top: 3em;
+    padding-bottom: 3em; border-top: 0px;">
+            	<div class="slide"><img src="{% static 'images/client/1.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/2.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/3.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/4.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/5.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/6.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/7.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/8.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/9.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/10.jpg' %}"></div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

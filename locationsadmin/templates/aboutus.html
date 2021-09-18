@@ -1,0 +1,420 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 16px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+    .gallery-title {
+        font-size: 100px;
+        font-family: 'Kufam', cursive;
+        color: #fdab26;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    .filter-button {
+        font-size: 16px;
+        border: 2px solid #635e5a;
+        padding: 3px 50px;
+        text-align: center;
+        color: #635e5a;
+        margin-bottom: 30px;
+        background: transparent;
+    }
+
+    .filter-button:hover,
+    .filter-button:focus,
+    .filter-button.active {
+        color: #ffffff;
+        background-color: #fdab26;
+        outline: none;
+    }
+
+    .gallery_product {
+        margin: 0px;
+        padding: 0;
+        position: relative;
+    }
+
+    .gallery_product .img-info {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+        overflow: hidden;
+        color: #fff;
+        top: 0;
+        display: none;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    .property-item:hover {
+        background-color: #fff;
+     }
+    .gallery_product:hover .img-info {
+        display: block;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    /* end gallery */
+
+     :focus {
+        outline: none;
+    }
+
+    .faq-list>div {
+        border-bottom: 0.07em solid #ededed;
+        padding: 1em 0em;
+    }
+
+    .faq-list>div:last-child {
+        border: initial;
+    }
+
+    summary {
+        font-size: 1.4em;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    summary:hover {
+        color: #e31b1b;
+        transition: all 0.3s ease;
+    }
+
+    details[open] summary~* {
+        animation: sweep .5s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+            margin-left: -10px
+        }
+        100% {
+            opacity: 1;
+            margin-left: 55px
+        }
+    }
+
+    details[open] summary {
+        color: #e31b1b;
+    }
+
+    details[open] p {
+        border-left: 2px solid red;
+        margin-left: 55px;
+        padding-left: 25px;
+        opacity: 100;
+        transition: all 3s ease;
+    }
+
+    details[open] summary:after {
+        content: "-";
+        font-size: 3.2em;
+        margin: -0.5em 0.14em 0 0;
+        font-weight: 200;
+    }
+
+    .faq-body {
+        width: 100%;
+        margin: 1em auto;
+        box-shadow: 0px 0px 16px #5b5b5b;
+        border-radius: 0.2em;
+        background-color: #fff;
+    }
+
+    .faq-list {
+        margin-left: 2em;
+        margin-right: 2em;
+        padding: 2em 0;
+    }
+
+    summary::-webkit-details-marker {
+        display: none
+    }
+
+    summary:after {
+        background: transparent;
+        border-radius: 0.3em;
+        content: "+";
+        color: #e31b1b;
+        float: left;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: -0.3em 0.25em 0 0;
+        padding: 0;
+        text-align: center;
+        width: 25px;
+    }
+</style>
+{% block content %}
+    <!-- ====== ABOUT PAGE HEADER ====== -->
+    <section class="page-header" style="padding-bottom: 64px; background: url({% static 'images/stripe_pattern.png' %}) repeat; background-image: url({% static 'images/bg_page_header_1.jpg' %})">
+        <div class="container">
+            <h1 class="page-header-title" style="color: white;">About Us</h1>
+            <ul class="breadcrumb">
+                <li><a href="https://www.maashaktiproperty.com/">Home</a></li>
+                <li class="active">About Us</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== PAGE CONTENT ====== -->
+    <section id="page-content" class="page-section">
+        <div class="container">
+            <!------->
+            <div class="container">
+                <div class="message-box rotated" style="z-index: 99999;">
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000;"><a href="/feedback" target="blank" style="color: rgb(62, 255, 62); text-decoration: none;">Feedback</a> </button>
+
+                        <button type="button" class="btn btn-info btn-lg turned-button" style="background-color: #000000; border: 1px soli d #000000; color: rgb(96, 231, 255);" data-toggle="modal" data-target="#myModal">ENQUIRE NOW</button>
+
+                    </div>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog" style="z-index:99999;">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" style="padding: 1px 3px;border-radius: 4px; font-size: 16px;">&times;</button>
+                                    <h4 class="modal-title" style="text-align: center; font-family: 'Acme';
+                                    font-size: 1.5em;">
+                                        ENQUIRE NOW
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" method="post" action="addcontact">
+										{% csrf_token %}
+                                        <p style="text-align: center;"> Send your ENQUIRE we will get back to you as early as possible. </p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="number" name="contact" class="form-control" id="number" placeholder="contact no.*" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required maxlength="50" style="box-shadow: 2px 2px 10px 0px #e3e3e3;">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6" style="margin-top: 1em;">
+                                                <div class="form-group">
+
+                                                    <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Your Message Here" maxlength="6000" rows="3" style="box-shadow: 2px 2px 10px 0px #e3e3e3;"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-success btn-block">Send Now &rarr;</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!----->
+
+            <!-- Section Title -->
+            <div class="section-header" id="About">
+                <h2 class="section-title">COMPANY OVERVIEW</h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="panel-box">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="content-image">
+                            <img src="{% static 'images/office_img.jpg' %}" alt="About our_office">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content-description">
+                            <h2>About Maa Shakti</h2>
+                            <p style="color: black; text-align: justify;">We are one of the best property consultants in the Mira Bhayandar and in Indralok area, we are the best. We help meet your property needs as per your budget and requirement. We are committed to provide you guidance and service
+                                throughout the process from start to end, starting with property search and finalization of the property including the bank and other formal processes.</p>
+                            <p style="color: black; text-align: justify;">Maa shakti is led by expert professionals who have more than 15 years experience in the market. We are Authorized Business Associates with leading banks and the top financial institutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- BEST DEALS -->
+    <section id="best-deals" class="page-section" style="background-image: url({% static 'images/maa/bg2.jpg' %}); background-attachment: fixed; width:100%;">
+        <div class="container" id="FAQ">
+
+
+            <!-- Section Title -->
+            <div class="section-header">
+                <h2 class="section-title">FAQ's</h2>
+            </div>
+            <div id="faq" class="faq-body">
+                <div class="faq-header">
+
+                    <div class="seperator"></div>
+                    <div class="faq-list">
+                    {% for faq in faqs %}
+                        <div>
+                            <details>
+                                <summary title="How can I pay for my appointment?" class="faq-content">{{faq.Question}}</summary>
+                                <p>{{faq.Answer}}</p>
+                            </details>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== HOW TO BUY SECTION ====== -->
+
+
+
+   <!-- ====== ADVANTAGES ====== -->
+    <section id="advantages" class="page-section" id="Specialities">
+        <div class="container">
+
+
+            <!-- Section Title -->
+            <div class="section-header">
+                <h2 class="section-title">Our Specialities </h2>
+            </div>
+
+            <!-- Section Content -->
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fa fa-building icon-item"></i>
+                        <h4 class="icon-title">PREMIUM PROPERTIES</h4>
+                        <p class="icon-description" style="color: black;">We hold an inventory of premium projects and have collaborated with ellite builders and get the best deals done for our customers. </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fa fa-certificate icon-item"></i>
+                        <h4 class="icon-title">WE ARE CERTIFIED</h4>
+                        <p class="icon-description" style="color: black;">we are certified as under maha rera : A51700006717 and have collaborated with many elite builders.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fa fa-phone icon-item"></i>
+                        <h4 class="icon-title">24/7 SUPPORT</h4>
+                        <p class="icon-description" style="color: black;">Our team is available 24/7 for our customers. We understand the busy schedule that our customers have and we try our best to be available all the time when our customer needs us. </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fas fa-award icon-item"></i>
+                        <h4 class="icon-title">BEST & GENUINE DEALS</h4>
+                        <p class="icon-description" style="color: black;">It's all about getting the best and genuine deal. Our efforts are always directed towards understanding the requirements of our customers and getting them the best and genuine deal.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fa fa-user icon-item"></i>
+                        <h4 class="icon-title">FRIENDLY STAFF</h4>
+                        <p class="icon-description" style="color: black;">Our team is dedicated and committed to deliver the best customer experience and we believe in going an extra mile for our customers to make the home buying experience unique and comfortable.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <!-- Panel Icon Box / This is general class can be use everywhere -->
+                    <div class="panel icon-box">
+                        <i class="fa fa-list icon-item"></i>
+                        <h4 class="icon-title">OTHER SPECIALTIES</h4>
+                        <p class="icon-description" style="color: black;">We strive to make the home buying experience hastle free and guide our customers from start to end.
+We also help and guide our customers through the loan process. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== TESTIMONY SECTION ====== -->
+    <section id="testimony" class="page-section bg-image" style="background-image: url({% static 'images/about/handshake.jpg' %}); background-attachment: fixed;">
+        <div class="container">
+
+            <!-- Section Header / Title with Column Slider Control / Add 'header-column' to use this style -->
+            <div class="section-header header-column">
+                <h2 class="section-title">client testimonials</h2>
+                <!-- Slider Control -->
+                <div class="slide-control">
+                    <button id="content-left" class="slide-left content-left"><i class="fa fa-angle-left"></i></button>
+                    <button id="content-right" class="slide-right content-right"><i
+							class="fa fa-angle-right"></i></button>
+                </div>
+            </div>
+            <!-- Testimony Slider Content -->
+            <div id="content-slider" class="content-slider testimony-wrapper">
+                <!-- Testimony Slider Item -->
+
+
+
+                {% for item in testimonials %}
+                    <!-- Testimony Left -->
+                    <div class="slider-item">
+                        <div class="testimony-item item-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="testimony-profile">
+                                        <img src="{{ MEDIA_URL }}/media/{{ item.ClientImage }}" alt="Client Image">
+                                        <h5>{{item.ClientName}}</h5>
+                                        <span>{{item.ClientPosition}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimony-text">
+                                        <p>{{item.ClientWords}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                {% endfor %}
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

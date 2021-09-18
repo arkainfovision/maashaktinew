@@ -1,0 +1,898 @@
+{% load static %}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!--  Maa Shakti -->
+
+<head>
+    <title>Maa Shakti</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type='image/x-icon' href="{% static 'images/favicon.ico' %}">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/46b69d07b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!------------>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!------------>
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <a href="https://icons8.com/icon/DcygmpZqBEd9/google-maps"></a>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Teko&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=PT+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="{% static 'engine1/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <script src="{% static 'form.js' %}"></script>
+
+    <!-- Start WOWSlider.com HEAD section -->
+    <link rel="stylesheet" type="text/css" href="{% static 'engine1/style.css' %}" />
+
+    <!-- End WOWSlider.com HEAD section -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WSRTHXZBP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9WSRTHXZBP');
+</script>
+
+
+    <style>
+    b {
+ font-weight: 400 !important;
+}
+    .nav>li>.sell:hover{
+        background-color:#000;
+    }
+
+    .property-item .property-label__depo {
+    background-color: #3672fa;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-decoration: none;
+    min-width: 60px;
+    text-align: center;
+    display: inline-block;
+}
+    .property-item .property-label__depo:hover {
+        background-color: #312723;
+            text-decoration: none;
+    }
+
+    .irs-slider,
+.irs-bar {
+    background-color: #fdab26;
+}
+
+.irs-slider.state_hover,
+.irs-slider:hover,
+.irs-slider:focus,
+.irs-slider:active {
+    background-color: #fdab26;
+}
+    .property-label__buy{
+        background-color: #44c7ea;
+
+    }
+    .property-label__buy:hover{
+        background-color: #312723;
+        text-decoration: none;
+
+    }
+         .makeit{
+             color:#000;
+         }
+         .makeit:hover{
+             color:#239df0;
+         }
+        .property-item:hover {
+        background-color: #fff;
+     }
+
+        .property-item {
+            box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);
+        }
+
+        .loader {
+            background-color: #fff;
+        }
+
+        #header #navbar .navbar-nav>li>a.hov{
+                color: #fdab26;
+                padding: 10x;
+            }
+            #header #navbar .navbar-nav>li>a.hov:hover {
+                color: #fff;
+                background-color: #fdab26;
+            }
+
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 10px 8px;
+        }
+
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            border: none;
+            background-color: #fff;
+            box-shadow: 0 8px 7px -6px #3127238c;
+        }
+
+        .topbar-item a:hover {
+            background: #FDAB26;
+            border-radius: 20px;
+        }
+
+        .social a {
+            font-size: 20px;
+        }
+
+        .social a i {
+            padding: 5px 8px;
+        }
+
+        .tpb-row {
+            padding-bottom: 110px;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            background-color: #fff;
+        }
+
+        @media only screen and (max-width: 800px) {
+            /* For mobile phones: */
+            .property-simple-search {
+                margin-top: 27em;
+            }
+            .property-simple-search .img-responsive {
+                top: ;
+            }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            /* For mobile phones: */
+            .property-simple-search .img-responsive {
+                top: ;
+            }
+        }
+        * {
+        padding: 0;
+        margin: 0;
+    }
+    /*	general	*/
+
+    section {
+        padding: 0px 0;
+    }
+    /*	gallery */
+
+    .gallery-title {
+        font-size: 100px;
+        font-family: 'Kufam', cursive;
+        color: #fdab26;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    .filter-button {
+        font-size: 16px;
+        border: 2px solid #635e5a;
+        padding: 5px 25px;
+        text-align: center;
+        color: #635e5a;
+        margin-bottom: 30px;
+        background: transparent;
+    }
+
+    .filter-button:hover,
+    .filter-button:focus,
+    .filter-button.active {
+        color: #ffffff;
+        background-color: #fdab26;
+        outline: none;
+    }
+
+    .gallery_product {
+        margin: 0px;
+        padding: 5px;
+        position: relative;
+        margin-bottom: 4em;
+
+    }
+     .gallery_product:hover{
+        transition-duration: 0.2s;
+        transition: 200ms ease-in;
+        transition: 200ms ease-out;
+        z-index: 99;
+     }
+
+    .gallery_product .img-info {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+        overflow: hidden;
+        color: #fff;
+        top: 0;
+        display: none;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    ..gallery_product p{
+        color:#fff;
+    }
+
+    .gallery_product:hover .img-info {
+        display: block;
+        -webkit-transition: 2s;
+        transition: 2s;
+
+    }
+    /*	end gallery */
+
+     :focus {
+        outline: none;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    p {
+        line-height: 1.4em;
+        color: #fff;
+    }
+
+    .faq-list>div {
+        border-bottom: 0.07em solid #ededed;
+        padding: 1em 0em;
+    }
+
+    .faq-list>div:last-child {
+        border: initial;
+    }
+
+    summary {
+        font-size: 1.4em;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    summary:hover {
+        color: #f99d1b;
+        transition: all 0.3s ease;
+    }
+
+    details[open] summary~* {
+        animation: sweep .5s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+            margin-left: -10px
+        }
+        100% {
+            opacity: 1;
+            margin-left: 55px
+        }
+    }
+
+    details[open] summary {
+        color: #000;
+    }
+
+    details[open] p {
+        border-left: 2px solid #f99d1b;
+        margin-left: 55px;
+        padding-left: 25px;
+        opacity: 100;
+        transition: all 3s ease;
+        padding-top: 0.5em;
+    }
+
+    details[open] summary:after {
+        content: "-";
+        font-size: 3.2em;
+        margin: -0.5em 0.14em 0 0;
+        font-weight: 200;
+    }
+
+    .faq-body {
+        width: 100%;
+        margin: 1em auto;
+        box-shadow: 0px 0px 16px #5b5b5b;
+        border-radius: 0.2em;
+        background-color: #fff;
+    }
+
+    .faq-list {
+        margin-left: 2em;
+        margin-right: 2em;
+        padding: 2em 0;
+    }
+
+    summary::-webkit-details-marker {
+        display: none
+    }
+
+    summary:after {
+        background: transparent;
+        border-radius: 0.3em;
+        content: "+";
+        color: #f99d1b;
+        float: left;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: -0.3em 0.25em 0 0;
+        padding: 0;
+        text-align: center;
+        width: 25px;
+    }
+
+    .property-item {
+        box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);
+    }
+
+    .loader {
+        background-color: #FDAB26;
+    }
+
+    .nav>li>a {
+        position: relative;
+        display: block;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+    .topbar-item a:hover {
+        background: #FDAB26;
+        border-radius: 20px;
+    }
+
+    .social a {
+        font-size: 20px;
+    }
+
+    .social a i {
+        padding: 5px 8px;
+    }
+
+    .tpb-row {
+        padding-bottom: 110px;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        margin-top: -7em;
+    }
+    p{
+        color: black;
+    }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="pre-loader loader" style="background-color:#fff;">
+        <img src="{% static 'images/loding1.gif' %}" alt="" style="border-radius: 1em solid #fff; margin-bottom: 5em;">
+
+    </div>
+   <!---====== BEGIN HEADER ======-->
+        <header id="header" style="height: 117px;">
+
+            <!-- Topbar Header Varian 1 -->
+            <div class="topbar-1">
+                <!-- Topbar Header Varian 1 for Desktop View-->
+                <nav class="topbar topbar-varian-1 desktop-topbar" style="background-color: #635e5a; border-top: 5px solid #FDAB26;">
+                    <div class="container">
+
+
+
+
+                        <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+
+                            <a href="https://g.page/maa-shakti-property-consultant?share" target="blank" style="text-decoration: none;" class="item-text">
+                                <span><img src="{% static 'images/icon/google-map.png' %}" style=" background-color: #fff;
+							padding: 4px; border-radius: 150px; box-shadow: 0 8px 17px -5px #000000;"></span> SHOP NO. 12, ANNAPURNA HEIGHTS, INDRALOK, PHASE 6, BHAYANDAR (E) .</a>
+
+                        </div>
+                        <div class="topbar-item" style="border-right: 0px solid; float: right;padding-left: 5em;">
+
+                            <a href="tel:9594888007" style=" text-decoration: none;" class="item-text">
+                                <span><img src="{% static 'images/icon/phone_icon.png' %}" style=" background-color: #fff;
+						padding: 1px; padding-top: 0px; border-radius: 30px; box-shadow: 0 8px 17px -5px #000000; padding-bottom: 2px;"></span>
+                                <b style="font-family: 'Helvetica'; letter-spacing: 1px;">9594888007</b> </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+
+            <!-- Main Menu Header -->
+            <nav class="navbar navbar-default" style="z-index: 99;">
+                <div class="container">
+                    <!-- Navbar Brand -->
+                    <div class="navbar-header" style="height: 70px;">
+                        <a  href="https://www.maashaktiproperty.com/" style="padding: 8px;"><img src="{% static 'images/newlogo2.png' %}"></a>
+                        <!--------
+					<span
+						style="background-color: #fff; padding: 1px 15px 1px 15px; border-radius: 10px; font-size: 14px; display: inline-block;">
+						<img src="images/icon/RERA.png" style="padding-bottom: 10px;">
+						<span style="color: #f45227; font-family: 'Acme';font-size: 15px;">MAHA RERA No:</span>
+						<span style="color: #000000; font-family: 'Acme';font-size: 17px;"> A51700006717</span>
+						</span>
+						------>
+
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                    </div>
+
+
+
+                    <!-- Navbar Menu -->
+                   <nav id="navbar" class="navbar navbar-right navbar-collapse collapse" style="z-index: 99; margin-bottom: 0px; margin-top: 1px;">
+                        <ul class="nav navbar-nav" style="margin-top: 15px;">
+
+                            <!--Dropdown Menu-->
+                            <li>
+
+                                <a href="https://www.maashaktiproperty.com/" style="font-size: 23px;"> <i class="fas fa-home"></i></a>
+                            </li>
+
+
+						<!-- Dropdown Menu -->
+                            <li>
+                                <a href="/aboutus">About Us</a>
+                            </li>
+                            <li class="dropdown">
+                                <a>Services</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/property_consultant"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Property Consultancy</a>
+                                    </li>
+                                    <li>
+                                        <a href="/finance"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Finance Consultancy</a>
+                                    </li>
+                                    <li>
+                                        <a href="/interior"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Interior Design</a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown Menu -->
+                            </li>
+                            <li class="dropdown">
+                                <a>Properties</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="properties?typeofprop=1"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Residential</a>
+                                    </li>
+                                    <li>
+                                        <a href="properties?typeofprop=2"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Commercial</a>
+                                    </li>
+                                </ul>
+                                	<!-- Dropdown Menu -->
+                            </li>
+                            <li>
+                                <a href="/myprojects">Projects</a>
+                            </li>
+                            <li>
+                                <a href="/blogs">Blogs</a>
+                            </li>
+
+                                <li class="dropdown">
+                                <a>Gallery</a>
+                                <!-- Column Menu -->
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/gallery"><img src="{% static 'images/icon/property1.png' %}" style="padding-right: 10px;">Property Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.maashaktiproperty.com/eventgallery"><img src="{% static 'images/icon/property2.png' %}" style="padding-right: 10px;">Event Gallery</a>
+                                    </li>
+                                </ul>
+                                <!-- Dropdown Menu -->
+                            </li>
+
+
+
+
+                            <!-- Dropdown Menu -->
+                            <li>
+                                <a href="/contact">Contact Us</a>
+                            </li>
+
+                           <li  style="border: 1px solid #fdab26;  border-radius: 4px;">
+                                <a class="hov" href="/contact">Post Property</a>
+                            </li>
+
+                    </nav>
+                </div>
+            </nav>
+        </header>
+        <!-- ====== END HEADER ====== -->
+{% block content %}
+
+{% endblock content %}
+<section id="about-us" class="page-section" style="background-color:#fff; border-top: 5px solid #FDAB26;">
+        <div class="container">
+
+            <!-- Brand Content -->
+
+            <div class="about-content">
+                <p style="color:#000;">“Owning a home is a keystone of wealth… <strong>both financial affluence and emotional
+						security.”</strong></p>
+                <a href="/contact" class="btn btn-primary" style="background-color: #39aa53; border-color: #39aa53;">Contact
+					Now</a>
+                <img src="{% static 'images/home/stamp.png' %}" alt="" style="margin-left: 0.5em;  width: 70px;">
+                 <img src="{% static 'images/home/maashakti_stamp.png' %}" alt="" style=" margin-left: 0.5em; transform: rotate(-33deg); width: 75px;">
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+<!-- ====== FOOTER ====== -->
+        <footer id="footer" style="border-bottom: 5px solid #FDAB26;">
+            <div class="container">
+                <div class="row footer-body">
+                    <!-- Footer Brand Column -->
+                    <div class="col-md-4 col-sm-12 footer-column">
+                        <a href="https://www.google.com/search?q=Maa+Shakti+Property+Consultant&sxsrf=ALeKk0136LXQUAvWrXUCJUgyZQIhtacQLw%3A1617857642720&ei=aoxuYNmeK4u84-EP_tKy8AE&oq=Maa+Shakti+Property+Consultant&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAguEMcBEK8BMgIIJjoHCCEQChCgAVDZswlYnuEJYMHsCWgBcAB4AIAB_wGIAawSkgEGMC4xNS4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwjZ-9yw7e3vAhUL3jgGHX6pDB4Q4dUDCA0&uact=5"><img src="{% static 'images/pro/boss 1.png' %}" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+                        <a href="https://www.google.com/search?q=Maa+Shakti+Property+Consultant&sxsrf=ALeKk0136LXQUAvWrXUCJUgyZQIhtacQLw%3A1617857642720&ei=aoxuYNmeK4u84-EP_tKy8AE&oq=Maa+Shakti+Property+Consultant&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAguEMcBEK8BMgIIJjoHCCEQChCgAVDZswlYnuEJYMHsCWgBcAB4AIAB_wGIAawSkgEGMC4xNS4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwjZ-9yw7e3vAhUL3jgGHX6pDB4Q4dUDCA0&uact=5"><img src="{% static 'images/pro/boss 2.png' %}" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+
+                        <p>SHOP NO. 12, ANNAPURNA HEIGHTS, <br>INDRALOK PHASE 6, BHAYANDAR (East).</p>
+
+                         <div class="social">
+
+                            <a href="https://www.facebook.com/Maashakti921/" target="black">
+                                <img src="{% static 'images/icon/facebook-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.instagram.com/invites/contact/?i=lpzh6jgfks8q&utm_content=c9z1vfw" target="black">
+                                <img src="{% static 'images/icon/instagram-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://twitter.com/MAASHAKTI6?s=08" target="blank">
+                                <img src="{% static 'images/icon/twitter-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCAuBxrw8V4zZKzqJQhV-c0g" target="black">
+                                <img src="{% static 'images/icon/youtube-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/maa-shakti-maa-shakti-property-consultant-870800209" target="black">
+                                <img src="{% static 'images/icon/linkedin-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="https://wa.me/qr/EX2I7SOAGF2BN1" target="black">
+                                <img src="{% static 'images/icon/whatsapp-35.png' %}" alt="icon" />
+                            </a>
+                            <a href="mailto:maashakti921@gmail.com" target="black">
+                                <img src="{% static 'images/icon/gmail-35.png' %}" alt="icon" />
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Usefull Link Column -->
+                    <div class="col-md-2 col-sm-6 footer-column">
+                        <h3 class="footer-title">Useful link</h3>
+                        <ul class="footer-menu">
+                            <li><a href="/property_consultant">Services</a></li>
+                            <li><a href="properties?typeofprop=1">Property Listing</a></li>
+                            <li><a href="https://www.maashaktiproperty.com/">Property Search</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Information Column -->
+                    <div class="col-md-2 col-sm-6 footer-column">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-menu">
+                            <li><a href="/aboutus">About Company</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="/blogs">BLOGS</a></li>
+                            <li><a href="/aboutus">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <!-- Instagram Column -->
+                    <div class="col-md-4 col-sm-12 footer-column">
+                        <h3 class="footer-title">Instagram</h3>
+                        <ul class="gallery-photo">
+                            <li>
+                                <a href="https://www.instagram.com/p/CMWQgZHHoDO/" target="blank"><img src="{% static 'images/instagram_1.jpg' %}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p/CMREfBJHwu1/" target="blank"><img src="{% static 'images/instagram_2.jpg' %}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p/CJ-ylnDHNTN/" target="blank"><img src="{% static 'images/instagram_3.jpg' %}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p/CKNrUpDnYbr/" target="blank"><img src="{% static 'images/instagram_4.jpg' %}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p/CKLZNroHI_i/" target="blank"><img src="{% static 'images/instagram_5.jpg' %}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/p/CKgkAm4nBJu/" target="blank"><img src="{% static 'images/instagram_6.jpg' %}" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            {% comment %}
+            <div class="copyright" style="border-top: 5px solid #FDAB26; background-color:#000;">
+                <div class="container clearfix">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <marquee scrollamount="8">   <p style="color:#fff;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+   &copy;<script>document.write(new Date().getFullYear());</script> <span style="color:#fff; font-family: 'Playball', cursive; text-transform: initial; font-size:16px;">This Website is made with <i class="fa fa-heart" aria-hidden="true" style="color:red;"></i> by</span>
+   <a href="https://www.neevsofttechnologies.com/" target="_blank" style="font-family: 'Play', sans-serif; font-size:20px; padding-left:10px; line-height: 1;">NEEVSOFT TECHNOLOGIES</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  </marquee>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            {% endcomment %}
+        </footer>
+ <script type="text/javascript" src="{% static 'ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' %}"></script>
+	<script>
+	$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+	</script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.daterangepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/apps.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	<script>
+
+    {% comment %} function submitData(event){
+    console.log('hello');
+    event.preventDefault();
+    var formdata = $('#searchform').serialize();
+    console.log(formdata);return;
+    $.ajax({
+        type: 'POST',
+        url: '/getprops',
+        data: formdata,
+        success: function(data){
+            console.log(data);
+        }
+    });
+} {% endcomment %}
+
+	$(document).ready(function() {
+    $('#stateoption').select2();
+	$('#cityoption').select2();
+	$('#locationstoreddrop').select2();
+	$('#state').select2();
+	$('#sublocationdrop').select2();
+	$('#areadropdown').select2();
+	$('#sale-type').select2();
+	$('#txntypedropdown').select2();
+	$('#txninput').select2();
+});
+	</script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                scrollwheel: false,
+                center: new google.maps.LatLng(-33.868898, 151.211208),
+            });
+
+            var iconBase = "{% static 'images/index.html' %}";
+            var icons = {
+                property: {
+                    icon: iconBase + 'icon_marker.png'
+                },
+            };
+
+            function addMarker(feature) {
+                var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                });
+            }
+
+            var features = [{
+                position: new google.maps.LatLng(-33.871059, 151.221364),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.866214, 151.211144),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.869764, 151.209213),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.870533, 151.214816),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.871177, 151.217252),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.868930, 151.191901),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.858028, 151.203870),
+                type: 'property'
+            }, ];
+
+            for (var i = 0, feature; feature = features[i]; i++) {
+                addMarker(feature);
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0DaKGlV-AAL09UAREeyUD_DOgEEyLwnU&amp;callback=initMap"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+    </script>
+
+
+    <script>
+        // var loader = document.querySelector(".loader");
+        // window.addEventListener("load", vanish);
+        // function vanish() {
+        // 	loader.classList.add("disppear");
+        // }
+        $(function() {
+            $('.pre-loader').fadeOut(500, function() {
+
+            });
+        });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+
+
+<!-- smooth scrolling -->
+   <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<!-- smooth scrolling -->
+
+
+
+
+
+</body>
+
+<!-- Maa Shakti -->
+
+</html>

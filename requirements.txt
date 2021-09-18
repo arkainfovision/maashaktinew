@@ -1,0 +1,7 @@
+gunicorn
+django-heroku
+django
+psycopg2
+whitenoise
+dj-static
+Pillow

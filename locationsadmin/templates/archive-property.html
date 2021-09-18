@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--  Maa Shakti -->
+
+<head>
+    <title>Maa Shakti</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" type='image/x-icon' href="assets/images/favicon.ico">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Teko&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=PT+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <!------------>
+    <link rel="stylesheet" href="form.css">
+    <script src="form.js"></script>
+    <!------------>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /*	general	*/
+
+    section {
+        padding: 50px 0;
+    }
+    /*	gallery */
+
+    .gallery-title {
+        font-size: 100px;
+        font-family: 'Kufam', cursive;
+        color: #fdab26;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 70px;
+    }
+
+    .filter-button {
+        font-size: 16px;
+        border: 2px solid #635e5a;
+        padding: 3px 50px;
+        text-align: center;
+        color: #635e5a;
+        margin-bottom: 30px;
+        background: transparent;
+    }
+
+    .filter-button:hover,
+    .filter-button:focus,
+    .filter-button.active {
+        color: #ffffff;
+        background-color: #fdab26;
+        outline: none;
+    }
+
+    .gallery_product {
+        margin: 0px;
+        padding: 0;
+        position: relative;
+    }
+
+    .gallery_product .img-info {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+        overflow: hidden;
+        color: #fff;
+        top: 0;
+        display: none;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+
+    .gallery_product:hover .img-info {
+        display: block;
+        -webkit-transition: 2s;
+        transition: 2s;
+    }
+    /*	end gallery */
+
+     :focus {
+        outline: none;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    p {
+        line-height: 1.4em;
+        color: #fff;
+    }
+
+    .faq-list>div {
+        border-bottom: 0.07em solid #ededed;
+        padding: 1em 0em;
+    }
+
+    .faq-list>div:last-child {
+        border: initial;
+    }
+
+    summary {
+        font-size: 1.4em;
+        font-weight: bold;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    summary:hover {
+        color: #e31b1b;
+        transition: all 0.3s ease;
+    }
+
+    details[open] summary~* {
+        animation: sweep .5s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+            margin-left: -10px
+        }
+        100% {
+            opacity: 1;
+            margin-left: 55px
+        }
+    }
+
+    details[open] summary {
+        color: #e31b1b;
+    }
+
+    details[open] p {
+        border-left: 2px solid red;
+        margin-left: 55px;
+        padding-left: 25px;
+        opacity: 100;
+        transition: all 3s ease;
+    }
+
+    details[open] summary:after {
+        content: "-";
+        font-size: 3.2em;
+        margin: -0.5em 0.14em 0 0;
+        font-weight: 200;
+    }
+
+    .faq-body {
+        width: 100%;
+        margin: 1em auto;
+        box-shadow: 0px 0px 16px #5b5b5b;
+        border-radius: 0.2em;
+        background-color: #fff;
+    }
+
+    .faq-list {
+        margin-left: 2em;
+        margin-right: 2em;
+        padding: 2em 0;
+    }
+
+    summary::-webkit-details-marker {
+        display: none
+    }
+
+    summary:after {
+        background: transparent;
+        border-radius: 0.3em;
+        content: "+";
+        color: #e31b1b;
+        float: left;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: -0.3em 0.25em 0 0;
+        padding: 0;
+        text-align: center;
+        width: 25px;
+    }
+
+    .property-item {
+        box-shadow: 2px 2px 10px 0px rgb(184, 184, 184);
+    }
+
+    .loader {
+        background-color: #FDAB26;
+    }
+
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 20px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 8px 7px -6px #3127238c;
+    }
+
+    .topbar-item a:hover {
+        background: #FDAB26;
+        border-radius: 20px;
+    }
+
+    .social a {
+        font-size: 20px;
+    }
+
+    .social a i {
+        padding: 5px 8px;
+    }
+
+    .tpb-row {
+        padding-bottom: 110px;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        margin-top: -7em;
+    }
+</style>
+
+<body class="header-1 page-header-1">
+
+    <!----header---->
+    <script src="https://kit.fontawesome.com/46b69d07b9.js" crossorigin="anonymous"></script>
+    <!-------------
+
+		<div class="pre-loader loader">
+		<img src="assets/images/perloder3.png" alt="" style="border-radius: 1em solid #fff; margin-bottom: 5em;">
+
+	</div>
+
+
+		#74ecd8;
+	====== CUSTOMIZER ====== --
+
+	<div id="customizer">
+		<div id="customizer-panel">
+			<span class="icon-panel"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+			<img src="assets/images/stamp.png" alt="" style=" margin-left: -8em; padding-right: 1em; margin-top: 5em;">
+		</div>
+		<div class="customizer-body">
+			<div id="close-customizer">
+				<a>
+					<i class="fa fa-times-circle" aria-hidden="true"></i>
+				</a>
+			</div>
+			<div id="setting-body">
+				<h3 class="customizer-title">Customizer</h3>
+				<section class="option-box option-color">
+					<h4 class="title">Color Template</h4>
+					<ul id="theme-options" class="theme-options">
+						<li><a href="#" id="brand-default"></a></li>
+						<li><a href="#" id="brand-yellow" class="active"></a></li>
+						<li><a href="#" id="brand-red"></a></li>
+						<li><a href="#" id="brand-orange"></a></li>
+						<li><a href="#" id="brand-green"></a></li>
+					</ul>
+				</section>
+				<section class="option-box option-header">
+					<h4 class="title">Header Style</h4>
+					<div class="btn-group">
+					  <button id="btn-header-style" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Select Header <span class="caret"></span>
+					  </button>
+					  <ul id="header-style" class="dropdown-menu">
+					    <li><a href="#" id="header-1" class="" title="Header 1">Header 1</a></li>
+					    <li><a href="#" id="header-2" class="" title="Header 2">Header 2</a></li>
+					    <li><a href="#" id="header-3" class="" title="Header 3">Header 3</a></li>
+					  </ul>
+					</div>
+				</section>
+				<section class="option-box option-page-header">
+					<h4 class="title">Page Header Style</h4>
+					<div class="btn-group">
+					  <button id="btn-page-header-style" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Select Page Header <span class="caret"></span>
+					  </button>
+					  <ul id="page-header-style" class="dropdown-menu">
+					    <li><a href="#" id="page-header-1" class="" title="Image">Image</a></li>
+					    <li><a href="#" id="page-header-2" class="" title="Pattern 1">Pattern 1</a></li>
+					    <li><a href="#" id="page-header-3" class="" title="Pattern 2">Pattern 2</a></li>
+					    <li><a href="#" id="page-header-4" class="" title="Color">Color</a></li>
+					  </ul>
+					</div>
+				</section>
+				<section class="option-box option-reset">
+					<a href="#" id="reset-button" class="btn btn-primary">RESET</a>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	 <====== BEGIN HEADER ====== -->
+    <header id="header">
+
+        <!-- Topbar Header Varian 1 -->
+        <div class="topbar-1">
+            <!-- Topbar Header Varian 1 for Desktop View-->
+            <nav class="topbar topbar-varian-1 desktop-topbar" style="background-color: #635e5a; border-top: 5px solid #FDAB26;">
+                <div class="container">
+                    <!------
+					<div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+						<span><img src="assets/images/icon/RERA.png"></span>
+						<p class="item-text" style="display: initial;"><span style="color: yellow;">MAHA RERA NO:</span> A51700006717</p>
+					</div>
+						------->
+
+                    <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+
+                        <a href="https://g.page/maa-shakti-property-consultant?share" target="blank" style="text-decoration: none;" class="item-text">
+                            <span><img src="assets/images/icon/google-map.png" style=" background-color: #fff;
+							padding: 4px; border-radius: 17%; box-shadow: 0 8px 17px -5px #000000;"></span> SHOP NO. 12, ANNAPURNA HEIGHTS, INDRALOK, PHASE 6, BHAYANDAR (E) .</a>
+
+                    </div>
+                    <div class="topbar-item" style="border-right: 0px solid; float: right;">
+
+                        <a href="tel:9594888007" style=" text-decoration: none;" class="item-text">
+                            <span><img src="assets/images/icon/phone icon.png" style=" background-color: #fff;
+						padding: 1px; padding-top: 0px; border-radius: 50%; box-shadow: 0 8px 17px -5px #000000;"></span> 9594 888 007 </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Topbar Header Varian 1 for Mobile View-->
+            <nav class="topbar topbar-varian-1 mobile-topbar" style="background-color: #707070; margin-top: -1px; height: 63px;">
+                <div class="slider slide-topbar">
+
+                    <div class="mobile" style=" text-align: center;">
+
+                        <div class="topbar-item" style="padding: 8px 12px;">
+                            <a href="https://g.page/maa-shakti-property-consultant?share" style="padding: 3px;	background-color: #fff; border-radius: 13%; margin-right: 2em;">
+                                <img src="https://img.icons8.com/color/40/000000/google-maps-new.png" />
+                            </a>
+
+                            <a href="tel:9594888007" style="padding: 3px;	background-color: #fff; border-radius: 13%;">
+                                <img src="https://img.icons8.com/fluent/40/000000/phone.png" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Topbar Header Varian 2 -->
+        <div class="topbar-2">
+            <nav class="topbar-varian-2 desktop-topbar">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Our Stores</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Topbar Header Varian 2 -->
+        <div class="topbar-3">
+            <!-- Topbar Header varian 3 for Desktop View-->
+            <nav class="topbar topbar-varian-3 desktop-topbar" style="background-color: #FDAB26;">
+                <div class="container">
+                    <!---
+						<div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+						<span class="item-icon fi flaticon-clock"></span>
+						<p class="item-text"><span style="color: yellow;"> MAHA RERA NO:</span> A51700006717</p>
+					</div>
+						----->
+
+                    <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+
+                        <img src="assets/images/google-map.png">
+                        <p class="item-text">SHOP NO. 12, ANNAPURNA HEIGHTS,<br> <span style="padding-left: 3px;">INDRALOK, PHASE 6, BHAYANDAR (E).</span> </p>
+                    </div>
+                    <div class="topbar-item" style="border-right: 0px solid;">
+                        <a href="tel:9594888007" style="display: initial;" class="item-text">
+                            <span><img src="assets/images/icon/phone icon.png"></span> 91 9594888007</a>
+                    </div>
+                    <div class="topbar-item">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Topbar Header varian 3 for Mobile View-->
+            <nav class="topbar topbar-varian-3 mobile-topbar">
+                <div class="slider slide-topbar">
+                    <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+                        <span class="item-icon fi flaticon-clock"></span>
+                        <p class="item-text"><span style="color: yellow;"> MAHA RERA NO:</span> A51700006717</p>
+                    </div>
+                    <div class="topbar-item" style="border-left: 0px solid; border-right: 0px solid;">
+
+                        <span class="item-icon fi flaticon-address"></span>
+                        <p class="item-text">SHOP NO. 12, ANNAPURNA HEIGHTS, INDRALOK, PHASE 6, BHAYANDAR (E).</p>
+                    </div>
+                    <div class="topbar-item" style="border-right: 0px solid;">
+                        <a href="tel:9594888007" style="display: initial;" class="item-text">
+                            <span><img src="assets/images/icon/phone icon.png"></span> 91 9594888007</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- Main Menu Header -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Navbar Brand -->
+                <div class="navbar-header" style="height: 70px;">
+                    <a style="padding: 4px;"><img src="assets/images/home/logo header.png"></a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                </div>
+                <!-- Navbar Menu -->
+                <nav id="navbar" class="navbar navbar-right navbar-collapse collapse" style="z-index: 100000; margin-bottom: 0px;">
+                    <ul class="nav navbar-nav" style="margin-top: 10px; padding-left: 2em;">
+
+                        <!--Dropdown Menu-->
+                        <li>
+
+                            <a href="https://www.maashaktiproperty.com/" style="font-size: 23px;"> <i class="fas fa-home"></i></a>
+                        </li>
+                        <!-- Column Menu --
+							<ul class="dropdown-menu">
+								<li><a href="index-property-1.html">Homepage Property 1</a></li>
+								<li><a href="index-property-2.html">Homepage Property 2</a></li>
+								<li><a href="index-property-3.html">Homepage Property 3</a></li>
+								<li><a href="index-booking-1.html">Homepage Booking 1</a></li>
+								<li><a href="index-booking-2.html">Homepage Booking 2</a></li>
+								<li><a href="index-booking-3.html">Homepage Booking 3</a></li>
+							</ul>
+						</li>
+
+						<!-- Dropdown Menu -->
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+                        <li>
+                            <a>Services</a>
+                        </li>
+                        <li class="dropdown" style="color: #FDAB26;">
+                            <a>Properties</a>
+                            <!-- Column Menu -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="archive-property.html"><img src="assets/images/icon/property1.png" style="padding-right: 10px;">Residential</a>
+                                </li>
+                                <li>
+                                    <a href="archive-property.html"><img src="assets/images/icon/property2.png" style="padding-right: 10px;">Commercial</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+                        <!-- Column Menu --
+							<ul class="dropdown-menu">
+								<li><a href="archive-property.html">Archive Properties</a></li>
+								<li><a href="single-property.html">Single Properties</a></li>
+								<li><a href="property-search-result.html">Property Search Results 1</a></li>
+								<li><a href="property-search-result-2.html">Property Search Results 2</a></li>
+								<li><a href="compare.html">Property Compare</a></li>
+								<li><a href="new-booking.html">Property Booking</a></li>
+							</ul>
+						</li>
+
+						<!-- Dropdown Menu -->
+
+
+                        <!-- Dropdown Menu -->
+
+                        <!-- Column Menu --
+							<ul class="dropdown-menu">
+								<li><a href="archive-blog.html">Archive Blog</a></li>
+								<li><a href="single-blog.html">Single Blog</a></li>
+							</ul>
+						</li>
+
+						<!-- Dropdown Menu -->
+                        <li>
+                            <a>Contact Us</a>
+                        </li>
+                        <!-- Column Menu --
+							<ul class="dropdown-menu">
+								<li><a href="typography.html">Typography</a></li>
+								<li><a href="404.html">Error 404</a></li>
+								<li><a href="countdown.html">Countdown Event</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="about.html">About Us</a></li>
+							</ul>
+						</li>
+
+						<!-- Dropdown Multi column / Megamenu --
+						<li class="dropdown multi-column">
+							<!-- Column Label --
+							<a>All Pages</a>
+							<!-- Column Menu --
+							<ul class="dropdown-menu">
+								<li class="col-lg-3">
+									<a>Homepage</a>
+									<ul class="submenu">
+										<li><a href="index-property-1.html">Homepage Property 1</a></li>
+										<li><a href="index-property-2.html">Homepage Property 2</a></li>
+										<li><a href="index-property-3.html">Homepage Property 3</a></li>
+										<li><a href="index-booking-1.html">Homepage Booking 1</a></li>
+										<li><a href="index-booking-2.html">Homepage Booking 2</a></li>
+										<li><a href="index-booking-3.html">Homepage Booking 3</a></li>
+									</ul>
+								</li>
+								<li class="col-lg-3">
+									<a>Property Pages</a>
+									<ul class="submenu">
+										<li><a href="archive-property.html">Archive Properties</a></li>
+										<li><a href="single-property.html">Single Properties</a></li>
+										<li><a href="property-search-result.html">Property Search Results 1</a></li>
+										<li><a href="property-search-result-2.html">Property Search Results 2</a></li>
+										<li><a href="compare.html">Property Compare</a></li>
+										<li><a href="new-booking.html">Property Booking</a></li>
+										<li><a href="archive-agent.html">Archive Agent</a></li>
+										<li><a href="single-agent.html">Single Agent</a></li>
+									</ul>
+								</li>
+								<li class="col-lg-3">
+									<a>Blog Pages</a>
+									<ul class="submenu">
+										<li><a href="archive-blog.html">Archive Blog</a></li>
+										<li><a href="single-blog.html">Single Blog</a></li>
+									</ul>
+								</li>
+								<li class="col-lg-3">
+									<a>Other Pages</a>
+									<ul class="submenu">
+										<li><a href="typography.html">Typography</a></li>
+										<li><a href="404.html">Error 404</a></li>
+										<li><a href="countdown.html">Countdown Event</a></li>
+										<li><a href="contact.html">Contact</a></li>
+										<li><a href="about.html">About Us</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<!--------------
+					<div class="topbar-2">
+						<!-- Mobile Topbar Varian 2 --
+						<div class="topbar-varian-2 mobile-topbar">
+							<ul>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Our Stores</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Newsletter</a></li>
+							</ul>
+						</div>
+					</div>
+					<!------------>
+                </nav>
+            </div>
+        </nav>
+    </header>
+    <!------header end-->
+    <!-- ====== PROPERTY ARCHIVE PAGE HEADER ====== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header-title">Properties</h1>
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Properties</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== PROPERTY LIST CONTENT ====== -->
+    <section class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Content -->
+                    <div id="content">
+                        <div class="row">
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_1.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">Villa For Sale</a>
+													<a href="#" class="property-label__status">Available</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_2.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">House For Sale</a>
+													<a href="#" class="property-label__status">Sold</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_3.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">Villa For Rent</a>
+													<a href="#" class="property-label__status">Available</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_4.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">House For Rent</a>
+													<a href="#" class="property-label__status">Sold</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_5.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">Villa For Sale</a>
+													<a href="#" class="property-label__status">Available</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <a href="single-property.html" class="property-image">
+                                            <img src="assets/images/index_5_property_1.png" alt="Post list 1">
+                                        </a>
+                                        <a href="#" class="btn-compare" title="Compare Property"><i
+												class="fa fa-exchange" style="font-size:1em;"></i></a>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="property-content">
+                                            <h3 class="property-title"><a href="single-property.html">Stunning new 4
+													bedroom must see villa in brawa</a></h3>
+                                            <p>
+                                                <span class="property-price">₹ 200.000.000</span>
+                                                <span class="property-label">
+													<a href="#" class="property-label__type">Villa For Rent</a>
+													<a href="#" class="property-label__status">Available</a>
+												</span>
+                                            </p>
+                                            <div class="property-address">
+                                                2096 Monroe Street, Houston, 77030 USA
+                                            </div>
+                                            <p class="property-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti sit quos mollitia omnis fuga, nihil suscipit, pariatur iusto dolore architecto labore consequatur minima molestias provident adipisci reiciendis
+                                                officia, aspernatur dignissimos?</p>
+                                            <div class="property-footer">
+                                                <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                                                <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                                                <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3
+                                                </div>
+                                                <div class="item-garage"><span class="fi flaticon-garage"></span> 1
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Property List Pagination -->
+                        <div class="pagination">
+                            <a href="#" class="prev"></a>
+                            <span class="current">1</span>
+                            <a href="#" class="page">2</a>
+                            <a href="#" class="page">3</a>
+                            <a href="#" class="page">4</a>
+                            <a href="#" class="page">5</a>
+                            <a href="#" class="next"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar">
+                        <!-- widget Booking -->
+                        <div class="widget widget-booking">
+                            <!-- Panel Box -->
+                            <div class="panel-box">
+                                <!-- Panel Header / Title -->
+                                <div class="panel-header">
+                                    <h3 class="text-center" style="color: #fdab26;">Booking Now</h3>
+                                </div>
+                                <!-- Panel Body -->
+
+
+                                <!-- widget section Search Property -->
+                                <div class="widget">
+                                    <!-- Search Tabmenu -->
+                                    <div class="search-tabmenu">
+                                        <!-- Tabmenu Navigation -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="active"><a href="#for-sale" role="tab" data-toggle="tab"><i class="fi flaticon-sale"></i> For Buy</a></li>
+                                            <li><a href="#for-sale" role="tab" data-toggle="tab"><i class="fi flaticon-rent"></i> For Rent</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <!-- Tab Content For Sale -->
+                                            <div role="tabpanel" class="tab-pane active" id="for-sale">
+                                                <form action="#">
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="sale-location">Property Cities</label>
+                                                            <select class="form-control" id="sale-location">
+														<option>Any Location</option>
+														<option>Visakhapatnam</option>
+														<option>Vijayawada</option>
+														<option>Guntur</option>
+														<option>Nellore</option>
+														<option>Kurnool</option>
+														<option>Rajahmundry</option>
+														<option>Tirupati</option>
+														<option>Kadapa</option>
+														<option>Kakinada</option>
+														<option>Eluru</option>
+														<option>Anantapur</option>
+														<option>Vijayanagaram</option>
+														<option>Ongole</option>
+														<option>Nandyal</option>
+														<option>Chittoor</option>
+														<option>Machilipatnam</option>
+														<option>Adoni</option>
+														<option>Tenali</option>
+														<option>Proddatur</option>
+														<option>Hindupur</option>
+														<option>Bhimavaram</option>
+														<option>Madanapalle</option>
+														<option>Guntakal</option>
+														<option>Srikakulam</option>
+														<option>Dharmavaram</option>
+
+													</select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="rent-location">Property Location</label>
+                                                            <select class="form-control" id="rent-location">
+													<option>Any Location</option>
+													<option>Melbourne</option>
+													<option>Sydney</option>
+													<option>Adelaide</option>
+													<option>Darwin</option>
+													<option>Perth</option>
+													<option>Canberra</option>
+												</select>
+                                                        </div>
+
+                                                        <div role="tabpanel" class="tab-pane" id="for-rent">
+                                                            <div class="form-group">
+                                                                <label for="rent-range-feet">Square Feet</label>
+                                                                <div class="range-box">
+                                                                    <input id="rent-range-feet" readonly="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="rent-range-price">Price</label>
+                                                                <div class="range-box">
+                                                                    <input id="rent-range-price" readonly="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="sale-type">Property Type</label>
+                                                                <select class="form-control" id="sale-type">
+														<option>Any Type</option>
+														<option>Residential</option>
+														<option>Commercial</option>
+														<option>2nd Home</option>
+														<option>Retail</option>
+														<option>Land</option>
+														<option>Pre-Leased</option>
+													</select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="rent-type">Property Type</label>
+                                                                <select class="form-control" id="rent-type">
+													<option>Any Type</option>
+													<option>Houses</option>
+													<option>Apartments</option>
+													<option>Unit</option>
+													<option>Townhouse</option>
+													<option>Land</option>
+													<option>RUral</option>
+												</select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="rent-type">AREA</label>
+                                                                <select class="form-control" id="rent-type">
+													<option>Any Area </option>
+													<option>Area 1</option>
+													<option>Area 2</option>
+													<option>Area 3</option>
+													<option>Area 4</option>
+													<option>Area 5</option>
+												</select>
+                                                            </div>
+                                                            <!--
+											<div class="form-group">
+												<label for="rent-bathroom">BathRoom</label>
+												<select class="form-control" id="rent-bathroom">
+													<option> 1 Bath</option>
+													<option> 2 Bath</option>
+													<option>3 Bath</option>
+													<option>4 Bath</option>
+													<option>5 Bath</option>
+												</select>
+											</div>
+											-->
+
+                                                            <div class="form-group" style="padding: 10px; background-color: #43d3b1;"><span class="fi flaticon-bathroom"></span> BATHROOM</div>
+                                                            <label style="display: table-column-group;">
+                                                      <input type="checkbox" name="sameadr" > 0 Bath
+                                                 </label>
+                                                            <label style="display: flow-root; float:right;">
+                                                     <input type="checkbox" name="sameadr" > 2  Bath
+                                                 </label>
+                                                            <label style="display: flow-root;">
+                                                     <input type="checkbox" name="sameadr" > 1 Bath
+                                                 </label>
+                                                            <label style="display: flow-root; float:right;">
+                                                     <input type="checkbox" name="sameadr"> 4 Bath
+                                                 </label>
+                                                            <label style="display: flow-root;">
+                                                     <input type="checkbox" name="sameadr"> 3 Bath
+                                                 </label>
+
+                                                            <div class="form-group">
+                                                                <!--BEDROOM checkbox-->
+
+                                                                <div class="form-group" style="padding: 10px; background-color: #43d3b1;"><span class="fi flaticon-room"></span> BEDROOM</div>
+
+                                                            <label style="display: flow-root; float: right;">
+                                                        <input type="checkbox" name="bedroom" value="2"> 2 BHK
+                                                    </label>
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" value="1"> 1 BHK
+                                                    </label>
+
+                                                    <label style="display: flow-root; float: right;">
+                                                        <input type="checkbox" name="bedroom" value="4"> 4 BHK
+                                                    </label>
+
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" value="3"> 3 BHK
+                                                    </label>
+
+                                                                    <label style="display: flow-root;">
+                                                        <input type="checkbox" name="bedroom" value="5"> 5 BHK
+                                                    </label>
+                                                 </label>
+
+                                                                <div class="form-group" style="text-align: center;">
+                                                                    <label for="rent-type">AMENITIES</label>
+                                                                    <select class="form-control" id="rent-type">
+													<option>Any AMENITIES</option>
+													<option></option>
+													<option></option>
+													<option></option>
+													<option></option>
+													<option></option>
+													<option></option>
+												</select>
+                                                                </div>
+                                                            </div>
+                                                </form>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button class="btn btn-primary btn-submit" type="submit"><i class="fa fa-search"></i> Search</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="booking-calendar" class="select-first" data-booked='["2017-10-14","2017-10-19","2017-10-15","2017-10-16","2017-10-17","2017-10-25","2017-10-26"]' data-unavailable='["2017-10-21","2017-10-22"]' data-midday="false"></div>
+
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <select class="form-control">
+											<option value="1">Guest</option>
+											<option value="2">1</option>
+											<option value="3">2</option>
+											<option value="3">3</option>
+										</select>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="form-control-static">4 Nights <span class="value">₹ 140</span></p>
+                                            <p class="form-control-static">Cleaning Fee <span class="value">₹ 10</span></p>
+                                            <p class="form-control-static">Total <span class="value">₹ 150</span></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Book Now</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Content For Rent-->
+
+                        <!-- widget section Contact Our Agent -->
+                        <div class="widget">
+                            <!-- Panel Box -->
+                            <div class="panel-box">
+                                <!-- Panel Header / Title -->
+                                <div class="panel-header">
+                                    <h3 class="panel-title">Contact Our Agent</h3>
+                                </div>
+                                <!-- Panel Body -->
+                                <div class="panel-body">
+                                    <div class="profile-box">
+                                        <div class="profile-header">
+                                            <div class="profile-img"><img src="assets/images/img_author_1.jpg" alt="John Doe"></div>
+                                            <h5 class="profile-title">John Doe</h5>
+                                        </div>
+                                        <ul class="profile-contact">
+                                            <li><i class="fa fa-envelope" style="font-size:25px;"></i> <a href="#" style="margin-left:1em;">hello@kensington.com</a></li>
+                                            <li><i class="fa fa-phone" style="margin-left: -2em; font-size:25px;"></i> <a href="#" style="margin-left:1em;">1300 123 123</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- widget section Message -->
+                        <div class="widget">
+                            <div class="panel-box">
+                                <!-- Panel Header / Title -->
+                                <div class="panel-header">
+                                    <h3 class="panel-title">Leave Message</h3>
+                                </div>
+                                <!-- Panel Body -->
+                                <div class="panel-body">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="message" id="messages" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn-submit btn-primary btn" value="Submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- widget section Recent Property-->
+                        <div class="widget">
+                            <div class="panel-box">
+                                <!-- Panel Header / Title -->
+                                <div class="panel-header">
+                                    <h3 class="panel-title">Recent Property</h3>
+                                </div>
+                                <!-- Panel Body -->
+                                <div class="panel-body">
+                                    <!-- Recent Property -->
+                                    <ul class="recent-property">
+                                        <!-- Property List Item -->
+                                        <li>
+                                            <div class="property-image"><img src="assets/images/index_5_property_1.png" alt="Property One"></div>
+                                            <div class="property-content">
+                                                <a href="single-property.html">Best Private Villas</a>
+                                                <span class="property-price">₹ 176,969</span>
+                                                <ul class="property-footer">
+                                                    <li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+                                                    <li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Property List Item -->
+                                        <li>
+                                            <div class="property-image"><img src="assets/images/index_5_property_2.png" alt="Property One"></div>
+                                            <div class="property-content">
+                                                <a href="single-property.html">Best Private Villas</a>
+                                                <span class="property-price">₹ 176,969</span>
+                                                <ul class="property-footer">
+                                                    <li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+                                                    <li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Property List Item -->
+                                        <li>
+                                            <div class="property-image"><img src="assets/images/index_5_property_3.png" alt="Property One"></div>
+                                            <div class="property-content">
+                                                <a href="single-property.html">Best Private Villas</a>
+                                                <span class="property-price">₹ 176,969</span>
+                                                <ul class="property-footer">
+                                                    <li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+                                                    <li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Property List Item -->
+                                        <li>
+                                            <div class="property-image"><img src="assets/images/index_5_property_4.png" alt="Property One"></div>
+                                            <div class="property-content">
+                                                <a href="single-property.html">Best Private Villas</a>
+                                                <span class="property-price">₹ 176,969</span>
+                                                <ul class="property-footer">
+                                                    <li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+                                                    <li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Property List Item -->
+                                        <li>
+                                            <div class="property-image"><img src="assets/images/index_5_property_5.png" alt="Property One"></div>
+                                            <div class="property-content">
+                                                <a href="single-property.html">Best Private Villas</a>
+                                                <span class="property-price">₹ 176,969</span>
+                                                <ul class="property-footer">
+                                                    <li class="item-wide"><span class="fi flaticon-wide"></span> 100</li>
+                                                    <li class="item-garage"><span class="fi flaticon-garage"></span> 2</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== ABOUT US SECTION ====== --
+	<div id="sidebar-compare">
+		<div class="sidebar-wrapper">
+			<a href="#" class="compare-toggle"><i class="fa fa-chevron-left"></i></a>
+			<header class="heading-bar">
+				<h3 class="heading-title">Compare Porperty</h3>
+			</header>
+			<ul class="compare-body">
+				<li class="compare-item">
+					<img src="assets/images/property_item_1_compare.jpg" alt="Property 1">
+					<h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+					<strong class="property-price">USD 176,969</strong>
+					<a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+				</li>
+				<li class="compare-item">
+					<img src="assets/images/property_item_2_compare.jpg" alt="Property 1">
+					<h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+					<strong class="property-price">USD 176,969</strong>
+					<a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+				</li>
+				<li class="compare-item">
+					<img src="assets/images/property_item_3_compare.jpg" alt="Property 1">
+					<h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+					<strong class="property-price">USD 176,969</strong>
+					<a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+				</li>
+				<li class="compare-item">
+					<img src="assets/images/property_item_4_compare.jpg" alt="Property 1">
+					<h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+					<strong class="property-price">USD 176,969</strong>
+					<a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+				</li>
+			</ul>
+			<footer class="footer-bar">
+				<a href="#" class="btn btn-primary btn-reset">Reset</a>
+				<a href="compare.html" class="btn btn-primary">Compare</a>
+			</footer>
+		</div>
+	</div>
+
+	<section id="about-us" class="page-section">
+		<div class="container">
+			<div class="row">
+				<!-- Brand Logo --
+				<div class="col-md-4 col-md-push-0 col-sm-6 col-sm-push-3">
+					<div class="about-brand">
+						<a href="#"><img src="assets/images/tonjoo_property.png" alt="Kensington Property"></a>
+					</div>
+				</div>
+				<!-- Brand Content --
+				<div class="col-md-8 col-sm-12">
+					<div class="about-content">
+						<div class="about-content">
+							<p>Kensington Property is template designed for <strong>Real Estate and Property
+									Management</strong></p>
+							<a href="https://themeforest.net/item/kensington-property-agency-and-single-property-html-template/19328889"
+								class="btn btn-primary">Buy Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-----footer start------->
+<section class="customer-logos slider" style="background-image: url('{% static "images/bg_video_1.jpg" %}'); padding: 2em; border-top: 0px; border-bottom: 5px solid #FDAB26;">
+            	<div class="slide"><img src="{% static 'images/client/1.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/2.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/3.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/4.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/5.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/6.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/7.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/8.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/9.jpg' %}"></div>
+		<div class="slide"><img src="{% static 'images/client/10.jpg' %}"></div>
+        </section>
+    <!--footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row footer-body">
+                <!-- Footer Brand Column -->
+                <div class="col-md-4 col-sm-12 footer-column">
+                    <a href="index.html"><img src="assets/images/pro/boss 1.png" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+                    <a href="index.html"><img src="assets/images/pro/boss 2.png" style="border-radius: 20px; padding: 10px;" alt="maa-shakti-property"></a>
+                    <p>SHOP NO. 12, ANNAPURNA HEIGHTS, <br>INDRALOK, PHASE 6, BHAYANDAR (East).</p>
+
+                    <div class="social">
+                        <!--------
+                    <a class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    --------->
+                        <a class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a class="linkedin"><i class="fab fa-linkedin"></i></a>
+
+                    </div>
+                </div>
+
+                <!-- Usefull Link Column -->
+                <div class="col-md-2 col-sm-6 footer-column">
+                    <h3 class="footer-title">Usefull link</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Property Listing</a></li>
+                        <li><a href="#">Property Search</a></li>
+                    </ul>
+                </div>
+                <!-- Information Column -->
+                <div class="col-md-2 col-sm-6 footer-column">
+                    <h3 class="footer-title">Information</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#">About Company</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Informations</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Instagram Column -->
+                <div class="col-md-4 col-sm-12 footer-column">
+                    <h3 class="footer-title">Instagram</h3>
+                    <ul class="gallery-photo">
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_1.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_2.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_3.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_4.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_5.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="assets/images/img_instagram_6.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container clearfix">
+                <p>Neev Soft Technologies &copy; @2020</p>
+                <a href="https://www.neevsofttechnologies.com/NeevSoft/" target="blank">neevsofttechnologies.com.</a>
+            </div>
+        </div>
+    </footer>
+    <!------footer end------->
+    <include src="footer.html"></include>
+
+    <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/moment.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.daterangepicker.min.js"></script>
+    <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="assets/js/ion.rangeSlider.min.js"></script>
+    <script type="text/javascript" src="assets/js/apps.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                scrollwheel: false,
+                center: new google.maps.LatLng(-33.868898, 151.211208),
+            });
+
+            var iconBase = 'assets/images/index.html';
+            var icons = {
+                property: {
+                    icon: iconBase + 'icon_marker.png'
+                },
+            };
+
+            function addMarker(feature) {
+                var marker = new google.maps.Marker({
+                    position: feature.position,
+                    icon: icons[feature.type].icon,
+                    map: map
+                });
+            }
+
+            var features = [{
+                position: new google.maps.LatLng(-33.871059, 151.221364),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.866214, 151.211144),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.869764, 151.209213),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.870533, 151.214816),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.871177, 151.217252),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.868930, 151.191901),
+                type: 'property'
+            }, {
+                position: new google.maps.LatLng(-33.858028, 151.203870),
+                type: 'property'
+            }, ];
+
+            for (var i = 0, feature; feature = features[i]; i++) {
+                addMarker(feature);
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0DaKGlV-AAL09UAREeyUD_DOgEEyLwnU&amp;callback=initMap"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+    </script>
+
+
+    <script>
+        // var loader = document.querySelector(".loader");
+        // window.addEventListener("load", vanish);
+        // function vanish() {
+        // 	loader.classList.add("disppear");
+        // }
+        $(function() {
+            $('.pre-loader').fadeOut(2000, function() {
+
+            });
+        });
+    </script>
+    <script>
+        /*	gallery */
+        $(document).ready(function() {
+
+            $(".filter-button").click(function() {
+                var value = $(this).attr('data-filter');
+
+                if (value == "all") {
+                    $('.filter').show('1000');
+                } else {
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+
+                if ($(".filter-button").removeClass("active")) {
+                    $(this).removeClass("active");
+                }
+                $(this).addClass("active");
+            });
+        });
+        /*	end gallery */
+
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+        });
+    </script>
+
+</body>
+
+<!-- Maa Shakti -->
+
+</html>

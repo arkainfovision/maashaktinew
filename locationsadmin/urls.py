@@ -1,0 +1,38 @@
+from django.contrib import admin
+from django.urls import path, include
+from . import views
+urlpatterns =[
+    path('official', views.officialpage, name="officialpage"),
+    path('sendforgot', views.forgotpass, name="forgot pass"),
+    path('allproperties', views.allpropertypage, name="all properties"),
+    path('getareasbasedonlocation', views.areasBasedOnLocationRef, name="Areas based on locations"),
+    path('compare', views.compare, name="compare page"),
+    path('prop', views.prop, name="Property"),
+    path('myprojects', views.myprojects, name="My Projects"),
+    path('contact', views.contact, name="contact us"),
+    path('properties', views.propertybytype, name="Properties"),
+    path('aboutus', views.aboutus, name="About Us"),
+    path('gallery', views.gallery, name="Gallery"),
+    path('eventgallery', views.eventgallery, name="Event Gallery"),
+    path('getsingleprop', views.getsingleprop, name="Single Property fetch"),
+    path('addfeedback', views.addfeedback, name="Add feedback"),
+    path('feedback', views.feedback, name="Feedback"),
+    path('thanks', views.thanks, name="thanks"),
+    path('individualblog', views.individualblog, name="Blog Individual"),
+    path('blogs', views.blogs, name = "Blog List"),
+    path('individualproperty', views.individualproperty, name="Individual Property"),
+    path('getprops', views.getprops, name="Get props micro API"),
+    path('addcontact', views.addcontact, name="Contact Us"),
+    path('search', views.search, name="Search Properties"),
+    path('getcities', views.getCities, name="cities"),
+    path('locationformsubmit', views.locationFormSubmission, name="cities"),
+    path('location', views.location, name="location"),
+    path('area', views.getAreas, name="area"),
+    path('getareas', views.getAreasBasedOnStatesAndCity, name="getareas"),
+    path('deleteloc', views.locationDelete, name="locationDeleter"),
+    path('updateloc', views.locationUpdate, name="locationUpdater"),
+    path('interior', views.interior, name="Interior"),
+    path('finance', views.finance, name="Finance"),
+    path('property_consultant', views.property_consultant, name="Property consultant"),
+    path('', views.home, name="MainPage")
+]
